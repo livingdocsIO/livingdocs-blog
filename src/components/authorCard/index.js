@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import {Link} from 'gatsby'
 
 const authorCard = props => (
   <main className="wrapper wrapper--article" role="main">

@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-export default props => (
+const Facebook = props => (
   <Helmet>
     {/* Open Graph / Facebook */}
     <meta property="og:type" content="website" />
@@ -14,3 +14,5 @@ export default props => (
     />
   </Helmet>
 )
+
+export default Facebook

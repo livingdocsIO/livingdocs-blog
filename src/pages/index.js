@@ -1,45 +1,41 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import {graphql} from 'gatsby'
 import BlogCard from '../components/blogCard'
 import Layout from '../components/layout'
 
 class Homepage extends React.Component {
   state = {
-    filter: 'none',
+    filter: 'none'
   }
 
   setFilter = filter => {
-    this.setState({ filter })
+    this.setState({filter})
   }
 
   filterElements = (categorie, content) =>
-    this.state.filter === 'none'
-      ? content
-      : this.state.filter === categorie && content
+    this.state.filter === 'none' ? content : this.state.filter === categorie && content
 
   createFilterButtons = () => (
     <header className="page-head" role="banner">
       <nav className="main-nav" role="navigation">
-        {['none', 'technology', 'immigration', 'politics', 'environment'].map(
-          filterType => (
-            <div className="main-nav__item" key={filterType}>
-              <a
-                href={`#${filterType}`}
-                onClick={() => this.setFilter(filterType)}
-                style={{
-                  backgroundColor: this.state.filter === filterType && '#eee',
-                }}
-              >
-                {filterType}
-              </a>
-            </div>
-          )
-        )}
+        {['none', 'technology', 'immigration', 'politics', 'environment'].map(filterType => (
+          <div className="main-nav__item" key={filterType}>
+            <a
+              href={`#${filterType}`}
+              onClick={() => this.setFilter(filterType)}
+              style={{
+                backgroundColor: this.state.filter === filterType && '#eee'
+              }}
+            >
+              {filterType}
+            </a>
+          </div>
+        ))}
       </nav>
     </header>
   )
 
-  render() {
+  render () {
     return (
       <Layout>
         {this.createFilterButtons()}
@@ -47,7 +43,8 @@ class Homepage extends React.Component {
           this.filterElements(
             data.node.publication.metadata.flag.toLowerCase(),
             <BlogCard
-              {...data.node.publication.metadata} // title, description, flag, publishDate, teaserImage
+              // title, description, flag, publishDate, teaserImage
+              {...data.node.publication.metadata}
               slug={data.node.extra.slug}
               key={data.node.publication.systemdata.documentId}
               authors={
@@ -64,11 +61,7 @@ class Homepage extends React.Component {
 
 export const query = graphql`
   query {
-    allPublications(
-      filter: {
-        publication: { systemdata: { contentType: { eq: "regular" } } }
-      }
-    ) {
+    allPublications(filter: {publication: {systemdata: {contentType: {eq: "regular"}}}}) {
       edges {
         node {
           extra {

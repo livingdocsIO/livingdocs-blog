@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-export default props => (
+const Twitter = props => (
   <Helmet>
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={props.url} />
@@ -13,3 +13,5 @@ export default props => (
     />
   </Helmet>
 )
+
+export default Twitter

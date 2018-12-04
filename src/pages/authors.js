@@ -1,9 +1,9 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import {graphql} from 'gatsby'
 import AuthorCard from '../components/authorCard'
 import Layout from '../components/layout'
 
-export default ({ data }) => (
+const browseAuthors = ({data}) => (
   <Layout>
     {data.allPublications.edges.map(author => (
       <AuthorCard
@@ -23,9 +23,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    allPublications(
-      filter: { publication: { systemdata: { contentType: { eq: "author" } } } }
-    ) {
+    allPublications(filter: {publication: {systemdata: {contentType: {eq: "author"}}}}) {
       edges {
         node {
           extra {
@@ -48,3 +46,5 @@ export const query = graphql`
     }
   }
 `
+
+export default browseAuthors

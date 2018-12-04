@@ -1,8 +1,7 @@
 const liSDK = require('@livingdocs/node-sdk')
 const crypto = require('crypto')
-
-exports.sourceNodes = async ({ actions }, configOptions) => {
-  const { createNode } = actions
+exports.sourceNodes = async ({actions}, configOptions) => {
+  const {createNode} = actions
 
   // Gatsby adds a configOption that's not needed for this plugin, delete it
   delete configOptions.plugins
@@ -10,22 +9,20 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
   // create a new livingdocs-client instance
   const liClient = new liSDK.Client({
     url: 'https://server.livingdocs.io',
-    accessToken: configOptions.accessToken,
+    accessToken: configOptions.accessToken
   })
 
   const limit = configOptions.limit ? configOptions.limit : 10
 
   // get all publications (articles, authors, etc.)
   const getAllPublications = () => {
-    const publication = liClient
-      .getPublications({ limit })
-      .then(publications => publications)
+    const publication = liClient.getPublications({limit}).then(publications => publications)
     return publication
   }
 
   const getPublication = async content => {
     const livingdoc = await liSDK.document.create({
-      content,
+      content
     })
     const article = liSDK.document.render(livingdoc)
     return article
@@ -48,20 +45,18 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
       parent: `__SOURCE__`,
       internal: {
         type: `Publications`, // name of the graphQL query --> allPublications {}
-        contentDigest: crypto.createHash(`md5`).digest(`hex`),
+        contentDigest: crypto.createHash(`md5`).digest(`hex`)
       },
       children: [],
       publication, // the graphQL content, schema automatically created by gatsby
       extra: {
-        slug: `${slugify(publication.metadata.title)}-${
-          publication.systemdata.documentId
-        }`,
-        html,
-      },
+        slug: `${slugify(publication.metadata.title)}-${publication.systemdata.documentId}`,
+        html
+      }
     }
     return nodeData
   }
-  async function createNodes() {
+  async function createNodes () {
     const allPublications = await getAllPublications()
 
     for (const publication of allPublications) {

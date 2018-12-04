@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, StaticQuery, graphql } from 'gatsby'
+import {Link, StaticQuery, graphql} from 'gatsby'
 
 // query for all authors
 const returnAuthorTitle = id => (
@@ -7,11 +7,7 @@ const returnAuthorTitle = id => (
     key={id}
     query={graphql`
       query returnAuthorTitleSlugId {
-        allPublications(
-          filter: {
-            publication: { systemdata: { contentType: { eq: "author" } } }
-          }
-        ) {
+        allPublications(filter: {publication: {systemdata: {contentType: {eq: "author"}}}}) {
           edges {
             node {
               id
@@ -30,9 +26,7 @@ const returnAuthorTitle = id => (
     `}
     // compare the id's of all authors to the given id
     render={data => {
-      const author = data.allPublications.edges.find(
-        publication => publication.node.id === id
-      )
+      const author = data.allPublications.edges.find(publication => publication.node.id === id)
       return (
         author && (
           // return the author and the slug of the author page
@@ -46,15 +40,7 @@ const returnAuthorTitle = id => (
 )
 
 const BlogTeaser = props => {
-  const {
-    title,
-    publishDate,
-    teaserImage,
-    flag,
-    description,
-    authors,
-    slug,
-  } = props
+  const {title, publishDate, teaserImage, flag, description, authors, slug} = props
   return (
     <div className="placeholder--teaser-card teaser-card--left-aligned-img">
       <div className="teaser-card">
@@ -74,12 +60,7 @@ const BlogTeaser = props => {
           </h2>
           <p className="teaser-card__text">{description}</p>
           <ul className="teaser-card__byline">
-            <li>
-              by{' '}
-              {authors
-                ? authors.map(author => returnAuthorTitle(author.id))
-                : 'mystery'}
-            </li>
+            <li>by {authors ? authors.map(author => returnAuthorTitle(author.id)) : 'mystery'}</li>
             <li>{publishDate}</li>
           </ul>
         </div>

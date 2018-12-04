@@ -11,23 +11,23 @@ import {
   WhatsappIcon,
   GooglePlusIcon,
   LinkedinIcon,
-  RedditIcon,
+  RedditIcon
 } from 'react-share'
 
 class socialMediaButtons extends React.Component {
   state = {
-    url: '',
+    url: ''
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (window) {
-      this.setState({ url: window.location.href })
+      this.setState({url: window.location.href})
     }
   }
 
-  render() {
-    const { description, title } = this.props
-    const { url } = this.state
+  render () {
+    const {description, title} = this.props
+    const {url} = this.state
 
     return (
       <span
@@ -35,7 +35,7 @@ class socialMediaButtons extends React.Component {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          paddingBottom: '10px',
+          paddingBottom: '10px'
         }}
       >
         <FacebookShareButton url={url} quote={description}>

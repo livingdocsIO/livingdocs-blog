@@ -11,7 +11,7 @@ const authorCard = props => (
             </div>
             <div className="author-card__body">
               <h2 className="author-card__title">{props.title}</h2>
-              <div dangerouslySetInnerHTML={{ __html: props.biography }} />
+              <div dangerouslySetInnerHTML={{__html: props.biography}} />
             </div>
           </div>
           {/* <div className="container container--lined">

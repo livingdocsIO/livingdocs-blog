@@ -1,24 +1,34 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import {graphql} from 'gatsby'
 import Layout from '../components/layout'
 import SocialMediaShareButtons from '../components/socialMediaButtons'
-import { Twitter, Facebook, Basic } from '../components/SEO'
-import { returnAuthorCard } from '../components/helpers'
+import {Twitter, Facebook, Basic} from '../components/SEO'
+import {returnAuthorCard} from '../components/helpers'
 
 const BlogPost = props => {
   const authors =
     props.data.publications.publication.metadata.authors &&
     props.data.publications.publication.metadata.authors.references
-  const description = props.data.publications.publication.metadata.description // SEO - description (Page, twitter, facebook)
-  const title = props.data.publications.publication.metadata.title // SEO - title (Page, twitter, facebook)
-  const html = props.data.publications.extra.html // HTML - rendering the html-body
-  const url = props.data.site.siteMetadata.siteUrl // SEO - url (Page, twitter, facebook)
+
+  // SEO - description (Page, twitter, facebook)
+  const description = props.data.publications.publication.metadata.description
+
+  // SEO - title (Page, twitter, facebook)
+  const title = props.data.publications.publication.metadata.title
+
+  // HTML - rendering the html-body
+  const html = props.data.publications.extra.html
+
+  // SEO - url (Page, twitter, facebook)
+  const url = props.data.site.siteMetadata.siteUrl
+
   return (
     <Layout>
       {/* SEO start, information for the html <head></head> */}
       <Basic
         scripts={
-          props.data.publications.publication.metadata.dependencies.js && // embed twitter script in the <head></head> if it exists
+          // embed twitter script in the <head></head> if it exists
+          props.data.publications.publication.metadata.dependencies.js &&
           props.data.publications.publication.metadata.dependencies.js[0].code
         }
         title={title}
@@ -27,9 +37,9 @@ const BlogPost = props => {
       <Twitter title={title} description={description} url={url} />
       <Facebook title={title} description={description} url={url} />
       {/* SEO start, information for the html <head></head> */}
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div dangerouslySetInnerHTML={{__html: html}} />
       {// this is just a fix because livingdocs does not provide author details
-      authors && authors.map(author => returnAuthorCard(author.id))}
+        authors && authors.map(author => returnAuthorCard(author.id))}
       <SocialMediaShareButtons title={title} description={description} />
     </Layout>
   )
@@ -42,7 +52,7 @@ export const query = graphql`
         siteUrl
       }
     }
-    publications(extra: { slug: { eq: $slug } }) {
+    publications(extra: {slug: {eq: $slug}}) {
       publication {
         metadata {
           authors {

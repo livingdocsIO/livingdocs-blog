@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import {StaticQuery, graphql} from 'gatsby'
 import AuthorCard from './authorCard'
 
 export const returnAuthorCard = id => (
@@ -7,11 +7,7 @@ export const returnAuthorCard = id => (
     key={id}
     query={graphql`
       query authorCard {
-        allPublications(
-          filter: {
-            publication: { systemdata: { contentType: { eq: "author" } } }
-          }
-        ) {
+        allPublications(filter: {publication: {systemdata: {contentType: {eq: "author"}}}}) {
           edges {
             node {
               id
@@ -36,9 +32,7 @@ export const returnAuthorCard = id => (
       }
     `}
     render={data => {
-      const author = data.allPublications.edges.find(
-        publication => publication.node.id === id
-      )
+      const author = data.allPublications.edges.find(publication => publication.node.id === id)
       return (
         author && (
           <AuthorCard

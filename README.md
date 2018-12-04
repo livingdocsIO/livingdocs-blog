@@ -22,7 +22,7 @@
         accessToken:
           'yourToken',
       },
-    },```
+    },
 
     ````
 

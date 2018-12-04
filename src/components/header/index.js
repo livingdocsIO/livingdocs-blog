@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import {Link} from 'gatsby'
 import logo from './ld_logo_final.png'
 
 const Header = () => (
@@ -12,9 +12,7 @@ const Header = () => (
       </div>
       <nav className="meta-nav">
         <div className="meta-nav__item">
-          <a href="https://github.com/livingdocsIO/magazine-example">
-            Source Code
-          </a>
+          <a href="https://github.com/livingdocsIO/magazine-example">Source Code</a>
         </div>
         <div className="meta-nav__item meta-nav__item--highlight">
           <a href="https://www.livingdocs.io/pssst" target="blank_">

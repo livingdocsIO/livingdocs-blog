@@ -7,7 +7,7 @@ import css from '../resources/living-times014.css'
 
 // Set a basic set of SEO data
 // blog-posts and author-pages will over overwrite some of them
-const Layout = ({ children }) => (
+const Layout = ({children}) => (
   <div>
     <Helmet defaultTitle="Livingblogs" titleTemplate="%s - Livingblogs">
       <html lang="en" />
@@ -21,15 +21,12 @@ const Layout = ({ children }) => (
       <meta property="twitter:account_id" content="id" />
       <meta
         name="description"
-        content="This is the Livingdocs-blog. We publish content all around Javascript, Frameworks and Livingdocs itself."
+        content="This is the Livingdocs-blog.
+        We publish content all around Javascript,
+        Frameworks and Livingdocs itself."
       />
 
-      <link
-        title="timeline-styles"
-        rel="shortcut icon"
-        type="image/png"
-        href={favicon}
-      />
+      <link title="timeline-styles" rel="shortcut icon" type="image/png" href={favicon} />
       <link title="timeline-styles" type="text/css" href={css.toString()} />
       <noscript>Please enable Javascript</noscript>
     </Helmet>
