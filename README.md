@@ -4,7 +4,7 @@
 
     Start by cloning this repository and installing the dependencies.
 
-    ```sh
+    ```
     git clone
     npm install
     ```
@@ -15,29 +15,29 @@
     You can find your token here: URL
 
 
-    ````
-    {
-      resolve: 'gatsby-source-livingdocs',
-      options: {
-        accessToken:
-          'yourToken',
-      },
-    },
-
-    ````
+    ```js
+    plugins: [
+      {
+        resolve: 'gatsby-source-livingdocs',
+        options: {
+          // optional, limit: default 10, max 100
+          limit: 100,
+          accessToken: "your_livingdocs_token"
+        }
+      }
+    ]
+    ```
 
     _In a nutshell, the Livingdocs plugin will get the data and from the json that is returned, the graphQL schema will be created at build time. You can read more about the plugin here_
 
-3.  **Start developing.**
+3.  **Open the source code and start editing the project locally!**
 
-    Navigate into your new site’s directory and start it up.
+    Navigate into your new site’s directory and start the project.
 
-    ```sh
+    ```
     cd livingblogs/
     gatsby develop
     ```
-
-4.  **Open the source code and start editing!**
 
     Gatsby will run two things now:
 
@@ -45,36 +45,40 @@
 
     And a GraphQL server at: `http://localhost:8000/___graphql`
 
-    _Note: This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+    _Note: GraphiQL, is a tool you can use to experiment querying your data with. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
     Perfect. You got your starter project running!
-    It still has the Livingdocs branding,
+    It still has the Livingdocs branding and SEO-setup.
 
 ## Where to go from here
 
-1. **Remove our branding, and use your own**
+1.  **Remove our branding, and use your own**
 
-   The following folders and files are going to be interesting starting points
-   ├── src
-   ├── components
-   ├── header
-   ├── favicon.png
-   ├── footer.js
-   ├── layout.js
-   ├── living-times014.css
-   ├── pages
-   ├── 404.js
-   ├── index.js
-   ├── gatsby-config.js
+    The following folders and files are going to be interesting starting points
 
-2. **Plugin overview**
+         ├── src
+           ├── components
+             ├── footer
+             ├── header
+             ├── layout
+             ├── resources
+               ├── favicon.png
+               ├── living-times014.css
+           ├── pages
+             ├── 404.js
+             ├── index.js
+         ├── gatsby-config.js
+
+2) **Plugin overview**
 
 We've added plugins that should be included in our opinion. We will shortly go over which plugins were used.
 
 _All plugins can be found in gatsby-config.js_
 
 **gatsby-source-livingdocs**
-Used to request the data from Livingdocs, afterwards used in _gatsby-node.js_ to programmatically create the pages.
+Used to request the data from Livingdocs, afterwards used in _gatsby-node.js_ to programmatically create the pages
+
+---
 
 **gatsby-plugin-react-helmet**
 Creates the <head> with metadata, css, social media headers, etc.
@@ -100,14 +104,16 @@ Weather you're an author, or a developer trying to understand what's going on so
 **A meaningful title in Livingdocs**
 This will be crucial for SEO reasons. Under the hood
 
-      ├── src
+    ├── src
       ├── components
         ├── layout.js
       ├── templates
         ├── blog-post.js
 
 The layout & blog-post components will set up all the neccessary data for google, facebook, twitter within the <head> component.
+
 So having meaningful `titles, descriptions, keywords` are very important, for the user to find the content.
+
 The good part? We've done lots of research regarding SEO for you. Thus, you can focus on using livingdocs and a good part of the technical implementation has been already done for you, if you use our starterkits.
 
 ## 🎓 Learning Gatsby
