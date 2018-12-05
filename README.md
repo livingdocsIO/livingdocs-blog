@@ -1,3 +1,7 @@
+## About the livingdocs-blog-starter
+
+This blog-starter is supposed to help you starting out with Livingdocs as a headless CMS. We assume you haven't set up any custom configurations and use our magazine-component library.
+
 ## Quick start
 
 1.  **Clone this repo**
@@ -58,16 +62,17 @@
 
          ├── src
            ├── components
-             ├── footer
-             ├── header
-             ├── layout
+             ├── footer | contains livingdocs links
+             ├── header | contains livingdocs branding
+             ├── layout | contains all SEO data (some specific to livingdocs)
              ├── resources
-               ├── favicon.png
+               ├── favicon.png | the livingdocs favicon
                ├── living-times014.css
            ├── pages
-             ├── 404.js
-             ├── index.js
+             ├── 404.js | Our 404 starter-page
+             ├── index.js | Homepage / initial route
          ├── gatsby-config.js
+         ├── gatsby-node.js | all blogPosts and authorPages are created here
 
 2) **Plugin overview**
 
