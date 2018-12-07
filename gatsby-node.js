@@ -1,8 +1,11 @@
 const path = require('path')
 
-// create the pages programatically from the node we created earlier
+// create the pages programatically from the data that is sourced from the plugin
 exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions
+
+  // This query will get all publications, that are in our graphQL server now
+  // (Just the slug and contentType though)
   const query = await graphql(`
     {
       allPublications {
@@ -21,16 +24,27 @@ exports.createPages = async ({graphql, actions}) => {
       }
     }
   `)
+
+  // In the following snippet we sort data by:
+  // regular (articles), which will result in blogPost pages here
+  // authors, which will result in the authorPages
   query.data.allPublications.edges.forEach(({node}) => {
+    // BlogPosts
     if (node.publication.systemdata.contentType === 'regular') {
+      // create a page if the content is of type "regular" (article)
       createPage({
+        // use the path that was created by the gatsby-plugin / livingdocs
         path: node.extra.slug,
-        component: path.resolve('./src/templates/blog-post.js'),
+        // use the blogPost component for the given content type
+        component: path.resolve('./src/templates/blogPost.js'),
+        // the page-context is used to find this publication again within blogPost.js
         context: {
           slug: node.extra.slug
         }
       })
     }
+
+    // AuthorPages
     if (node.publication.systemdata.contentType === 'author') {
       createPage({
         path: node.extra.slug,

@@ -3,7 +3,10 @@ import {graphql} from 'gatsby'
 import BlogCard from '../components/blogCard'
 import Layout from '../components/layout'
 
+// The homepage. This could also be done in Livingdocs
 class Homepage extends React.Component {
+  /* Filter article logic start */
+
   state = {
     filter: 'none'
   }
@@ -35,6 +38,8 @@ class Homepage extends React.Component {
     </header>
   )
 
+  /* Filter article logic end */
+
   render () {
     return (
       <Layout>
@@ -59,6 +64,7 @@ class Homepage extends React.Component {
   }
 }
 
+// get all publications that equal(eq) the "regular" content-type
 export const query = graphql`
   query {
     allPublications(filter: {publication: {systemdata: {contentType: {eq: "regular"}}}}) {

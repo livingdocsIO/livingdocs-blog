@@ -5,6 +5,8 @@ import SocialMediaShareButtons from '../components/socialMediaButtons'
 import {Twitter, Facebook, Basic} from '../components/SEO'
 import {returnAuthorCard} from '../components/helpers'
 
+// The pages created in gatsby-node.js will use this component("template" by gatsby convention)
+// The data is recieved by the graphQL query from the bottom of this component
 const BlogPost = props => {
   const authors =
     props.data.publications.publication.metadata.authors &&
@@ -45,6 +47,8 @@ const BlogPost = props => {
   )
 }
 
+// in gatsby-node.js we gave a context "slug"
+// we can use that to filter the matching publication and slug now
 export const query = graphql`
   query($slug: String!) {
     site {
