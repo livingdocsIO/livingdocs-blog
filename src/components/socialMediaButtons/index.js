@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   FacebookShareButton,
-  GooglePlusShareButton,
   LinkedinShareButton,
   TwitterShareButton,
   WhatsappShareButton,
@@ -9,7 +8,6 @@ import {
   FacebookIcon,
   TwitterIcon,
   WhatsappIcon,
-  GooglePlusIcon,
   LinkedinIcon,
   RedditIcon
 } from 'react-share'
@@ -44,9 +42,6 @@ class socialMediaButtons extends React.Component {
         <TwitterShareButton url={url} title={title} via="livingdocsIO">
           <TwitterIcon size={50} round />
         </TwitterShareButton>
-        <GooglePlusShareButton url={url}>
-          <GooglePlusIcon size={50} round />
-        </GooglePlusShareButton>
         <WhatsappShareButton url={url} title={description}>
           <WhatsappIcon size={50} round />
         </WhatsappShareButton>
