@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import {Twitter, Facebook, Basic} from '../components/SEO'
 import SocialMediaShareButtons from '../components/socialMediaButtons'
 import AuthorDetails from '../components/authorDetails'
+import {metadata} from '../../config'
 
 // The pages created in gatsby-node.js will use this component("template" by gatsby convention)
 // The data is recieved by the graphQL query from the bottom of this component
@@ -17,7 +18,7 @@ const AuthorPage = props => {
   const biography = props.data.publications.publication.metadata.biography
 
   // SEO - url (Page, twitter, facebook)
-  const url = props.data.site.siteMetadata.siteUrl
+  const url = metadata.url
 
   const authorImage =
     props.data.publications.publication.metadata.authorImage &&
@@ -44,11 +45,6 @@ const AuthorPage = props => {
 // we can use that to filter the matching publication and slug now
 export const query = graphql`
   query($slug: String!) {
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
     publications(extra: {slug: {eq: $slug}}) {
       publication {
         metadata {

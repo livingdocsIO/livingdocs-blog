@@ -1,9 +1,7 @@
 module.exports = {
+  // siteMetadata is used for sitemap.xml
   siteMetadata: {
-    title: 'Livingblogs',
-    author: 'Livingdocs',
-    siteUrl: 'https://blog.livingdocs.io', // @TODO add Link
-    description: 'A starter blog demonstrating what Livingdocs can do.'
+    siteUrl: `https://blog.livingdocs.io`
   },
   plugins: [
     {
@@ -19,8 +17,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://www.URL.com', // @TODO add Link
-        sitemap: 'https://URL.com/sitemap.xml', // @TODO add Link
+        host: 'https://blog.livingdocs.io', // @TODO add Link
+        sitemap: 'https://blog.livingdocs.io/sitemap.xml', // @TODO add Link
         env: {
           development: {
             policy: [{userAgent: '*', disallow: ['/']}]
