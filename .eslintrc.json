@@ -1,5 +1,10 @@
 {
   "extends": ["plugin:react/recommended", "plugin:import/recommended"],
+  "settings": {
+    "react": {
+      "version": "15.0"
+    }
+  },
   "parserOptions": {
     "ecmaVersion": 8,
     "ecmaFeatures": {
