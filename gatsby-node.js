@@ -54,5 +54,15 @@ exports.createPages = async ({graphql, actions}) => {
         }
       })
     }
+    // Pages
+    if (node.publication.systemdata.contentType === 'page') {
+      createPage({
+        path: node.extra.slug,
+        component: path.resolve('./src/templates/blogPost.js'),
+        context: {
+          slug: node.extra.slug
+        }
+      })
+    }
   })
 }
