@@ -1,5 +1,5 @@
 {
-  "extends": ["plugin:react/recommended", "plugin:import/recommended"],
+  "extends": ["plugin:react/recommended"],
   "settings": {
     "react": {
       "version": "15.0"
@@ -21,7 +21,7 @@
     "browser": true
   },
 
-  "plugins": ["react", "import"],
+  "plugins": ["react"],
 
   "globals": {
     "document": false,
