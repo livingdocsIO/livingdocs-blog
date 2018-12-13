@@ -19,3 +19,10 @@ pipeline:
     group: test
     image: node:10-alpine
     commands: ["npm run test -s"]
+
+  release:
+    group: publish
+    image: marcbachmann/semantic-release:15.1.3
+    secrets: [gh_token]
+    when:
+      event: push
