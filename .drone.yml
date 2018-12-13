@@ -12,7 +12,7 @@ pipeline:
 
   eslint:
     group: install
-    image: marcbachmann/eslint:5.2.0
+    image: marcbachmann/eslint:5.10.0
     secrets: [gh_token]
 
   test:
