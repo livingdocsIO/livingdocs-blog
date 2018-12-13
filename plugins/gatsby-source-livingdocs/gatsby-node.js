@@ -1,6 +1,11 @@
 const liSDK = require('@livingdocs/node-sdk')
 const crypto = require('crypto')
-exports.sourceNodes = async ({actions}, configOptions) => {
+const resolveIncludes = require('./includes')
+const includesConfig = require('./includes/config')
+const renderLayout = require('./includes/render')
+const slugify = require('./slugify')
+
+exports.sourceNodes = ({actions}, configOptions) => {
   const {createNode} = actions
 
   // Gatsby adds a configOption that's not needed for this plugin, delete it
@@ -20,26 +25,31 @@ exports.sourceNodes = async ({actions}, configOptions) => {
     return publication
   }
 
-  const getPublication = async content => {
-    const livingdoc = await liSDK.document.create({
-      content
+  const getPublication = async publication => {
+    const design = await liClient.getDesign({name: 'living-times', version: '0.0.14'})
+    const livingdoc = liSDK.document.create({
+      content: publication.content,
+      design
     })
-    const article = liSDK.document.render(livingdoc)
-    return article
-  }
 
-  const slugify = text =>
-    text
-      .toString()
-      .toLowerCase()
-      .trim()
-      .replace(/&/g, '-and-') // Replace & with 'and'
-      .replace(/[\s\W-]+/g, '-') // Replace spaces, non-word characters and dashes with a single dash (-)
-      .replace(/-$/, '') // Remove last floating dash if exists
+    if (
+      publication.systemdata.documentType === 'article' ||
+      publication.systemdata.documentType === 'page'
+    ) {
+      console.log(publication.systemdata.documentType)
+      await resolveIncludes(livingdoc, liClient, includesConfig)
+      const html = await renderLayout(livingdoc, design)
+
+      return html
+    } else {
+      const article = liSDK.document.render(livingdoc)
+      return article
+    }
+  }
 
   // Create your node object
   const processPublication = async publication => {
-    const html = await getPublication(publication.content)
+    const html = await getPublication(publication)
     const nodeData = {
       id: `${publication.systemdata.documentId}`,
       parent: `__SOURCE__`,
@@ -50,7 +60,7 @@ exports.sourceNodes = async ({actions}, configOptions) => {
       children: [],
       publication, // the graphQL content, schema automatically created by gatsby
       extra: {
-        slug: `${slugify(publication.metadata.title)}-${publication.systemdata.documentId}`,
+        slug: slugify(publication.metadata.title, publication.systemdata.documentId),
         html
       }
     }
@@ -65,5 +75,5 @@ exports.sourceNodes = async ({actions}, configOptions) => {
     }
   }
 
-  return await createNodes()
+  return createNodes()
 }
