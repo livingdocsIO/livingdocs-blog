@@ -10,10 +10,10 @@ pipeline:
     image: node:10-alpine
     commands: ["npm install"]
 
-  # eslint:
-  #   group: install
-  #   image: marcbachmann/eslint:4.19.1
-  #   secrets: [gh_token]
+  eslint:
+    group: install
+    image: marcbachmann/eslint:5.2.0
+    secrets: [gh_token]
 
   test:
     group: test
