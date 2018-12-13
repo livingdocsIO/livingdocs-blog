@@ -1,4 +1,5 @@
 {
+  "version": "0.0.0-placeholder",
   "name": "livingdocs-blog",
   "description": "Livingdocs used to create a Blog.",
   "license": "MIT",
@@ -34,5 +35,14 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "prettier": "^1.15.3"
+  },
+  "release": {
+    "npmPublish": false,
+    "verifyConditions": [
+      "@semantic-release/github"
+    ],
+    "publish": [
+      "@semantic-release/github"
+    ]
   }
 }
