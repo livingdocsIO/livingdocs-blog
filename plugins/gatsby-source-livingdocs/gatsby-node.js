@@ -36,7 +36,6 @@ exports.sourceNodes = ({actions}, configOptions) => {
       publication.systemdata.documentType === 'article' ||
       publication.systemdata.documentType === 'page'
     ) {
-      console.log(publication.systemdata.documentType)
       await resolveIncludes(livingdoc, liClient, includesConfig)
       const html = await renderLayout(livingdoc, design)
 
