@@ -2,11 +2,10 @@ const liSDK = require('@livingdocs/node-sdk')
 const crypto = require('crypto')
 const resolveIncludes = require('./includes')
 const includesConfig = require('./includes/config')
-const {documentTypes, defaultDocumentType} = require('./includes/config/documentTypes')
 const renderLayout = require('./includes/render')
 const slugify = require('./slugify')
 
-exports.sourceNodes = async ({actions}, configOptions) => {
+exports.sourceNodes = ({actions}, configOptions) => {
   const {createNode} = actions
 
   // Gatsby adds a configOption that's not needed for this plugin, delete it
@@ -27,17 +26,19 @@ exports.sourceNodes = async ({actions}, configOptions) => {
   }
 
   const getPublication = async publication => {
-    const livingdoc = await liSDK.document.create({
-      content: publication.content
+    const design = await liClient.getDesign({name: 'living-times', version: '0.0.14'})
+    const livingdoc = liSDK.document.create({
+      content: publication.content,
+      design
     })
 
-    if (publication.systemdata.documentType === 'article') {
+    if (
+      publication.systemdata.documentType === 'article' ||
+      publication.systemdata.documentType === 'page'
+    ) {
+      console.log(publication.systemdata.documentType)
       await resolveIncludes(livingdoc, liClient, includesConfig)
-      const documentType = publication.systemdata.documentType
-      const currentDocumentType = documentTypes && documentTypes[documentType]
-      const targetDocumentType = currentDocumentType || defaultDocumentType
-      const layoutComponents = targetDocumentType.layoutComponents
-      const html = await renderLayout(livingdoc, layoutComponents)
+      const html = await renderLayout(livingdoc, design)
 
       return html
     } else {
@@ -74,5 +75,5 @@ exports.sourceNodes = async ({actions}, configOptions) => {
     }
   }
 
-  return await createNodes()
+  return createNodes()
 }

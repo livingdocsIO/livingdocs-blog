@@ -6,9 +6,9 @@ module.exports = function enrichVideoTeaserContent ({component, publication} = {
 
   const freeHtmlComponents = tree.find('free-html')
   const iframeComponents = tree.find('iframe')
-  component.append('video',
-    getFirstEscaped(freeHtmlComponents, 'free-html') ||
-    getFirstEscaped(iframeComponents, 'iframe')
+  component.append(
+    'video',
+    getFirstEscaped(freeHtmlComponents, 'free-html') || getFirstEscaped(iframeComponents, 'iframe')
   )
 }
 

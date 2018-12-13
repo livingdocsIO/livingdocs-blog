@@ -1,7 +1,7 @@
 const liSDK = require('@livingdocs/node-sdk')
 
-module.exports = async function renderLayout (livingdoc, {layout}) {
-  const wrapperLivingdoc = await liSDK.document.create({content: {}})
+module.exports = async function renderLayout (livingdoc, design) {
+  const wrapperLivingdoc = await liSDK.document.create({content: {}, design})
 
   const tree = wrapperLivingdoc.componentTree
 
