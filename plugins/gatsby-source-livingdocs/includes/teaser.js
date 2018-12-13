@@ -43,11 +43,13 @@ function startDataFetchTasks (includes, liClient) {
 function validateConfig (layout, layoutsConfig) {
   const layoutConfig = layoutsConfig[layout]
   if (!layoutConfig.template) {
-    const msg = `Template component ("template") for layout "${layout}" not specified in layout configuration`
-    throw new Error(msg)
+    throw new Error(
+      `Template component ("template") for layout "${layout}" not specified in layout configuration`
+    )
   }
   if (!layoutConfig.contentSpec) {
-    const msg = `Content spec ("contentSpec") for layout "${layout}" not specified in layout configuration`
-    throw new Error(msg)
+    throw new Error(
+      `Content spec ("contentSpec") for layout "${layout}" not specified in layout configuration`
+    )
   }
 }
