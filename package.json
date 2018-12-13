@@ -44,5 +44,14 @@
     "publish": [
       "@semantic-release/github"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/livingdocsIO/livingdocs-blog.git"
+  },
+  "author": "Livingdocs <support@livingdocs.io>",
+  "bugs": {
+    "url": "https://github.com/livingdocsIO/livingdocs-blog/issues"
+  },
+  "homepage": "https://github.com/livingdocsIO/livingdocs-blog#readme"
 }
