@@ -8,6 +8,7 @@ module.exports = {
       resolve: 'gatsby-source-livingdocs',
       options: {
         limit: 35, // defaults to 10, if there is none
+        // The accessToken is accessed at buildtime and set in netlify in this case
         accessToken: process.env.accessToken
       }
     },
