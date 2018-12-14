@@ -35,9 +35,9 @@ exports.sourceNodes = ({actions}, configOptions) => {
       publication.systemdata.documentType === 'article' ||
       publication.systemdata.documentType === 'page'
     ) {
-      // await resolveIncludes(livingdoc, liClient, includesConfig)
-      // const html = await renderLayout(livingdoc, design)
-      // return html
+      await resolveIncludes(livingdoc, liClient, includesConfig)
+      const html = await renderLayout(livingdoc, design)
+      return html
     } else {
       const article = liSDK.document.render(livingdoc)
       return article
