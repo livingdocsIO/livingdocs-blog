@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import Layout from '../components/layout'
 import liSDK from '@livingdocs/node-sdk'
@@ -7,7 +8,7 @@ const renderLayout = require('../includes/render')
 
 // create a new livingdocs-client instance
 const TOKEN =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6InB1YmxpYy1hcGk6cmVhZCIsIm5hbWUiOiJMaXZpbmdkb2NzLW9uYm9hcmRpbmciLCJwcm9qZWN0SWQiOjExMSwiY2hhbm5lbElkIjoxMDgsInR5cGUiOiJjbGllbnQiLCJqdGkiOiJlMzAzYWM2OS1hOTQwLTQ4NjYtOTViYS01ZDdkNDk3NDgwMTkiLCJjb2RlIjoiZTMwM2FjNjktYTk0MC00ODY2LTk1YmEtNWQ3ZDQ5NzQ4MDE5IiwiaWF0IjoxNTQxMDg0OTQxfQ.jB0ipjwA0hgxD1bxxZSzHIKbyw1W-swOKe8hbrScBmo' // eslint-disable-line max-len
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6InB1YmxpYy1hcGk6cmVhZCIsIm5hbWUiOiJMaXZpbmdkb2NzLW9uYm9hcmRpbmciLCJwcm9qZWN0SWQiOjExMSwiY2hhbm5lbElkIjoxMDgsInR5cGUiOiJjbGllbnQiLCJqdGkiOiJlMzAzYWM2OS1hOTQwLTQ4NjYtOTViYS01ZDdkNDk3NDgwMTkiLCJjb2RlIjoiZTMwM2FjNjktYTk0MC00ODY2LTk1YmEtNWQ3ZDQ5NzQ4MDE5IiwiaWF0IjoxNTQxMDg0OTQxfQ.jB0ipjwA0hgxD1bxxZSzHIKbyw1W-swOKe8hbrScBmo'
 const liClient = new liSDK.Client({
   url: 'https://server.livingdocs.io',
   accessToken: TOKEN
@@ -22,7 +23,7 @@ class testing extends React.Component {
     )
   }
 
-  async componentDidMount () {
+  async componentDidMount() {
     fetch('https://server.livingdocs.io/api/v1/documents/latestPublications?limit=50', {
       headers: new Headers({
         Authorization: `Bearer ${TOKEN}`,
@@ -46,7 +47,7 @@ class testing extends React.Component {
       })
     )
   }
-  render () {
+  render() {
     console.log(process.env.accessToken)
     return (
       <Layout>
