@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import liSDK from '@livingdocs/node-sdk'
 import resolveIncludes from '../includes'
 import includesConfig from '../includes/config'
+import data from '../testing/res.json'
 const renderLayout = require('../includes/render')
 
 // create a new livingdocs-client instance
@@ -16,39 +17,22 @@ const liClient = new liSDK.Client({
 
 class testing extends React.Component {
   state = {
-    bodyContent: (
-      <body>
-        <div>test</div>
-      </body>
-    )
+    bodyContent: 'loading...'
   }
 
   async componentDidMount() {
-    fetch('https://server.livingdocs.io/api/v1/documents/latestPublications?limit=50', {
-      headers: new Headers({
-        Authorization: `Bearer ${TOKEN}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Accept: 'application/json'
-      })
-    }).then(res =>
-      res.json().then(async data => {
-        const contentType = data.filter(pub => pub.systemdata.documentType === 'page')
-        const publication = contentType[0]
-        const design = await liClient.getDesign({name: 'living-times', version: '0.0.14'})
-        const livingdoc = await liSDK.document.create({
-          content: publication.content,
-          design
-        })
-        await resolveIncludes(livingdoc, liClient, includesConfig)
-        const bodyContent = await renderLayout(livingdoc, design)
-
-        this.setState({bodyContent})
-        // const includes = liSDK.document.getIncludes(dataS)
-      })
-    )
+    const contentType = data.filter(pub => pub.systemdata.documentType === 'page')
+    const publication = contentType[0]
+    const design = await liClient.getDesign({name: 'living-times', version: '0.0.14'})
+    const livingdoc = await liSDK.document.create({
+      content: publication.content,
+      design
+    })
+    await resolveIncludes(livingdoc, liClient, includesConfig)
+    const bodyContent = await renderLayout(livingdoc, design)
+    this.setState({bodyContent})
   }
   render() {
-    console.log(process.env.accessToken)
     return (
       <Layout>
         <div dangerouslySetInnerHTML={{__html: this.state.bodyContent}} />
