@@ -25,8 +25,7 @@ exports.sourceNodes = ({actions}, configOptions) => {
     return publication
   }
 
-  const getPublication = async publication => {
-    const design = await liClient.getDesign({name: 'living-times', version: '0.0.14'})
+  const getPublication = async (publication, design) => {
     const livingdoc = liSDK.document.create({
       content: publication.content,
       design
@@ -36,10 +35,9 @@ exports.sourceNodes = ({actions}, configOptions) => {
       publication.systemdata.documentType === 'article' ||
       publication.systemdata.documentType === 'page'
     ) {
-      await resolveIncludes(livingdoc, liClient, includesConfig)
-      const html = await renderLayout(livingdoc, design)
-
-      return html
+      // await resolveIncludes(livingdoc, liClient, includesConfig)
+      // const html = await renderLayout(livingdoc, design)
+      // return html
     } else {
       const article = liSDK.document.render(livingdoc)
       return article
@@ -47,8 +45,8 @@ exports.sourceNodes = ({actions}, configOptions) => {
   }
 
   // Create your node object
-  const processPublication = async publication => {
-    const html = await getPublication(publication)
+  const processPublication = async (publication, design) => {
+    const html = await getPublication(publication, design)
     const nodeData = {
       id: `${publication.systemdata.documentId}`,
       parent: `__SOURCE__`,
@@ -67,9 +65,9 @@ exports.sourceNodes = ({actions}, configOptions) => {
   }
   async function createNodes () {
     const allPublications = await getAllPublications()
-
+    const design = await liClient.getDesign({name: 'living-times', version: '0.0.14'})
     for (const publication of allPublications) {
-      const nodeData = await processPublication(publication)
+      const nodeData = await processPublication(publication, design)
       createNode(nodeData)
     }
   }
