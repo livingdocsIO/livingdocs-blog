@@ -37,13 +37,7 @@
     "prettier": "^1.15.3"
   },
   "release": {
-    "npmPublish": false,
-    "verifyConditions": [
-      "@semantic-release/github"
-    ],
-    "publish": [
-      "@semantic-release/github"
-    ]
+    "extends": "@livingdocs/semantic-release-presets/github"
   },
   "repository": {
     "type": "git",
