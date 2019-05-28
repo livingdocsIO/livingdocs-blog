@@ -10,7 +10,7 @@ module.exports = {
         limit: 35, // defaults to 10, if there is none
         // The accessToken is accessed at buildtime and set in netlify in this case
         accessToken:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6InB1YmxpYy1hcGk6cmVhZCIsIm5hbWUiOiJMaXZpbmdkb2NzLW9uYm9hcmRpbmciLCJwcm9qZWN0SWQiOjExMSwiY2hhbm5lbElkIjoxMDgsInR5cGUiOiJjbGllbnQiLCJqdGkiOiJlMzAzYWM2OS1hOTQwLTQ4NjYtOTViYS01ZDdkNDk3NDgwMTkiLCJjb2RlIjoiZTMwM2FjNjktYTk0MC00ODY2LTk1YmEtNWQ3ZDQ5NzQ4MDE5IiwiaWF0IjoxNTQxMDg0OTQxfQ.jB0ipjwA0hgxD1bxxZSzHIKbyw1W-swOKe8hbrScBmo',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6InB1YmxpYy1hcGk6cmVhZCIsIm5hbWUiOiJibG9nIiwicHJvamVjdElkIjo0NDIsImNoYW5uZWxJZCI6NDM4LCJ0eXBlIjoiY2xpZW50IiwianRpIjoiNjQ0N2U0MDgtMDFiNC00MWQwLTkwY2EtMDE3YzNmZDBkMjYyIiwiY29kZSI6IjY0NDdlNDA4LTAxYjQtNDFkMC05MGNhLTAxN2MzZmQwZDI2MiIsImlhdCI6MTU1OTA3NDYxNn0.sYiKNTlCUVL2Sf3ufLgyi015VTgWuZNDzFEFqXAc6eA',
         design: {
           name: 'living-times',
           version: '0.0.19'
