@@ -50,11 +50,6 @@ class BlogPost extends React.Component {
       <Layout>
         {/* SEO start, information for the html <head></head> */}
         <Basic
-          scripts={
-            // embed twitter script in the <head></head> if it exists
-            this.props.data.publications.publication.metadata.dependencies.js &&
-            this.props.data.publications.publication.metadata.dependencies.js[0].code
-          }
           title={title}
           description={description}
         />
@@ -78,11 +73,6 @@ export const query = graphql`
           authors {
             references {
               id
-            }
-          }
-          dependencies {
-            js {
-              code
             }
           }
           title
