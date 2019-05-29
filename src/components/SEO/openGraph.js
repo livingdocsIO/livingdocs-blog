@@ -1,9 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-const Facebook = props => (
+// Open Graph for various social media websites / example: Facebook, twitter cards
+const openGraph = props => (
   <Helmet>
-    {/* Open Graph / Facebook */}
     <meta property="og:type" content="website" />
     <meta property="og:url" content={props.url} />
     <meta property="og:title" content={props.title} />
@@ -15,4 +15,4 @@ const Facebook = props => (
   </Helmet>
 )
 
-export default Facebook
+export default openGraph
