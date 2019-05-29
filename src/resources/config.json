@@ -1,0 +1,304 @@
+{
+  "name": "living-stories",
+  "label": "Living Stories",
+  "version": "0.0.2",
+  "license": "Copyright (c) 2018 Livingdocs AG, all rights reserved",
+
+  "assets": {
+    "basePath": "https://cdn.livingdocs.io/designs/living-stories/0.0.2",
+    "css": ["./styles.css"],
+    "js": ["./scripts.js"]
+  },
+
+  "componentProperties": {
+
+    "paragraph-style-lead": {
+      "label": "Lead",
+      "type": "option",
+      "value": "paragraph--lead"
+    },
+
+    "position": {
+      "label": "Position",
+      "type": "select",
+      "options": [
+        {
+          "caption": "Middle"
+        },
+        {
+          "caption": "Left",
+          "value": "left"
+        },
+        {
+          "caption": "Right",
+          "value": "right"
+        }
+      ]
+    },
+
+    "image-position": {
+      "label": "Position",
+      "type": "select",
+      "options": [
+        {
+          "caption": "Middle"
+        },
+        {
+          "caption": "Left",
+          "value": "image--left"
+        },
+        {
+          "caption": "Right",
+          "value": "image--right"
+        }
+      ]
+    },
+
+    "teaser-feature-style": {
+      "label": "Style",
+      "type": "select",
+      "options": [
+        {
+          "caption": "Big"
+        },
+        {
+          "caption": "Small",
+          "value": "teaser-feature-card--small"
+        }
+      ]
+    },
+
+    "image-width": {
+      "label": "Image width",
+      "type": "select",
+      "options": [
+        {
+          "caption": "Normal"
+        },
+        {
+          "caption": "Wide",
+          "value": "image--wide"
+        }
+      ]
+    },
+
+    "container-style-breath": {
+      "label": "Extra margin",
+      "type": "option",
+      "value": "container--breath"
+    },
+
+    "container-style-lined": {
+      "label": "Add lines",
+      "type": "option",
+      "value": "container--lined"
+    },
+
+    "options": {
+      "id": "Options",
+      "label": "Options",
+      "type": "select",
+      "options": [
+        {
+          "caption": "Default"
+        },
+        {
+          "caption": "Stripe",
+          "value": "half-height"
+        }
+      ]
+    },
+
+    "featured": {
+      "label": "Featured",
+      "type": "option",
+      "value": "bleed"
+    },
+
+    "unordered": {
+      "label": "Unordered",
+      "type": "option",
+      "value": "bullet"
+    },
+
+    "large": {
+      "label": "Large",
+      "type": "option",
+      "value": "large"
+    },
+
+    "list-type": {
+      "label": "List Type",
+      "type": "select",
+      "options": [
+        {
+          "caption": "Bullets"
+        }, {
+          "caption": "Numbers",
+          "value": "decimal"
+        }, {
+          "caption": "Letters",
+          "value": "lower-latin"
+        }, {
+          "caption": "Romans",
+          "value": "lower-roman"
+        }
+      ]
+    }
+  },
+
+  "layouts": [
+    {
+      "name": "regular",
+      "caption": "Article",
+      "wrapper": "<div class=\"doc-section wrapper wrapper--article\"></div>",
+      "icon": null,
+      "defaultContent": [
+        {
+          "identifier": "living-stories.article-container",
+          "containers": {
+            "header": [
+              { "identifier": "living-stories.head" }
+            ],
+            "main": [
+              { "identifier": "living-stories.image" },
+              { "identifier": "living-stories.paragraph" },
+              { "identifier": "living-stories.teaser-author"}
+            ]
+          }
+        }
+      ],
+      "groups": [
+        {
+          "label": "Headers",
+          "components": ["head", "head-wide", "subtitle"]
+        },
+        {
+          "label": "Text",
+          "components": ["paragraph", "quote", "separator", "bullet-list", "event-list"]
+        },
+        {
+          "label": "Images",
+          "components": ["image", "image-row", "image-full-bleed"]
+        },
+        {
+          "label": "Embeds",
+          "components": ["tweet", "iframe", "free-html"]
+        },
+        {
+          "label": "Teasers",
+          "components": ["teaser-author", "teaser-card", "teaser-gallery-hero"]
+        }
+      ]
+    },
+    {
+      "name": "gallery",
+      "caption": "Gallery",
+      "wrapper": "<div class=\"doc-section wrapper wrapper--article\"></div>",
+      "icon": null,
+      "defaultContent": [
+        {
+          "identifier": "living-stories.article-container",
+          "containers": {
+            "header": [
+              { "identifier": "living-stories.head" }
+            ],
+            "main": [
+              {
+                "identifier": "living-stories.gallery-container",
+                "containers": {
+                  "gallery": [
+                    { "identifier": "living-stories.image" },
+                    { "identifier": "living-stories.image" }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "groups": [
+        {
+          "label": "Headers",
+          "components": ["head"]
+        },
+        {
+          "label": "Image",
+          "components": ["image"]
+        }
+      ]
+    },
+    {
+      "wrapper": "<div class=\"doc-section wrapper wrapper--default\"></div>",
+      "name": "author",
+      "caption": "Author",
+      "icon": null,
+      "defaultContent": []
+    }
+  ],
+
+  "defaultLayout": "regular",
+
+  "defaultComponents": {
+    "paragraph": "paragraph",
+    "image": "image",
+    "html": "free-html"
+  },
+
+  "imageRatios": {
+    "16:9": {
+      "label": "16:9",
+      "ratio": "16x9"
+    },
+    "1:1": {
+      "label": "1:1",
+      "ratio": "1x1"
+    },
+    "4:3": {
+      "label": "4:3",
+      "ratio": "4x3"
+    },
+    "3:4": {
+      "label": "3:4",
+      "ratio": "3x4"
+    }
+  },
+
+  "prefilledComponents": {
+    "head": {
+      "author": {
+        "value": "author",
+        "type": "computed"
+      }
+    }
+  },
+
+  "metadata": [
+    {
+      "identifier": "title",
+      "type": "text",
+      "matches": ["head.title"],
+      "isEditable": true
+    },
+    {
+      "identifier": "description",
+      "type": "text",
+      "matches": ["head.text", "paragraph.text"],
+      "isEditable": true
+    },
+    {
+      "identifier": "teaserImage",
+      "type": "image",
+      "matches": ["image.image"],
+      "isEditable": true,
+      "imageRatios": ["16:9"]
+    },
+    {
+      "identifier": "authorImage",
+      "type": "image",
+      "matches": [],
+      "isEditable": true,
+      "imageRatios": ["1:1"]
+    }
+  ]
+}

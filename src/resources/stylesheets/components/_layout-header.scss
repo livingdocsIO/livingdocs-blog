@@ -1,0 +1,143 @@
+// -----------------------------------------------------------------------------
+// HEADER
+// -----------------------------------------------------------------------------
+
+// Styles for the following components:
+// -> source/components/layout/article-layout.html
+// -> source/components/layout/article-layout-header.html
+
+.page-head {
+  // display: none;
+
+  position: relative;
+
+  overflow: hidden;
+  margin-top: halve($base-spacing-unit);
+  margin-bottom: halve($base-spacing-unit);
+}
+
+// Meta bar
+.meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: quarter($base-spacing-unit);
+}
+
+
+// Logo
+.logo {
+  max-width: 180px;
+  display: inline-block;
+}
+
+// Meta navgation styles
+.meta-nav__item {
+  display: inline-block;
+}
+
+.meta-nav__item a {
+  display: block;
+  padding: quarter($base-spacing-unit);
+
+  text-decoration: none;
+  @include font-size($micro-size);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.meta-nav__item--highlight a {
+  color: $jungle-green;
+}
+
+
+// Main navigation styles
+.main-nav-container {
+  background-color: $alabaster;
+
+  display: none; // temperary hidden
+}
+
+.main-nav {
+  position: relative;
+
+  display: flex;
+  flex-wrap: nowrap;
+
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  // &::after {
+  //   bottom: 0;
+  //   left: $base-spacing-unit;
+  //   right: $base-spacing-unit;
+  //   position: absolute;
+  //
+  //   height: 1px;
+  //   background-color: $divider-color;
+  //
+  //   content: " ";
+  // }
+}
+
+.main-nav__item {
+  margin-left: $base-spacing-unit;
+
+  color: $secondary-color;
+  transition: color 250ms;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  > a {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    text-decoration: none;
+    @include font-size($micro-size, false);
+
+    white-space: nowrap;
+  }
+
+  &:hover {
+    color: $text-color;
+  }
+
+  &.is-selected a {
+    font-weight: bold;
+  }
+}
+
+
+// Media Queries
+@media (max-width: $mq-small) {
+  .meta-nav {
+    top: 29px;
+    right: halve($base-spacing-unit);
+  }
+
+  .nav-container {
+    margin-left: halve($base-spacing-unit);
+    margin-right: halve($base-spacing-unit);
+  }
+}
+
+@media (max-width: $mq-extra-small) {
+  .logo {
+    max-width: 140px;
+  }
+
+  .meta-nav {
+    top: 11px;
+  }
+
+  .main-nav__item {
+    flex-basis: 25%;
+  }
+}

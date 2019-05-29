@@ -1,0 +1,30 @@
+<script type="ld-conf">
+  {
+    "name": "image-row",
+    "label": "Two Images",
+    "description": "Two images in a row",
+    "allowedParents": [
+      "article-container",
+      "author-container",
+      "gallery-container",
+      "teaser-author-template",
+      "author-head",
+      "teaser-card-template",
+      "teaser-gallery-hero-template",
+      "teaser-gallery-template"
+    ],
+    "iconUrl": "https://livingdocs-assets.s3.amazonaws.com/magazine-design/assets/images/icons-components/icon_image.svg"
+  }
+</script>
+
+<figure class="image-row">
+  <div class="layout layout--narrow image-row__grid">
+    <div class="layout__item image-row__item">
+      <div class="image-row__image" doc-image="image1"></div>
+    </div>
+    <div class="layout__item image-row__item">
+      <div class="image-row__image" doc-image="image2"></div>
+    </div>
+  </div>
+  <figcaption class="image-row__caption" doc-editable="caption" doc-optional="true">Image caption</figcaption>
+</figure>

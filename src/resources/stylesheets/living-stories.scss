@@ -1,0 +1,86 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// LIVING-STORIES.SCSS
+// -----------------------------------------------------------------------------
+
+// Settings
+@import 'settings/colors';
+@import 'settings/core';
+
+
+// Tools
+@import 'tools/functions';
+@import 'tools/font-size';
+@import 'tools/clearfix';
+
+
+// Generic styles
+@import 'generic/box-sizing';
+@import 'generic/normalize';
+@import 'generic/reset';
+@import 'generic/shared';
+
+
+// Element styles
+@import 'elements/page';
+@import 'elements/images';
+@import 'elements/headings';
+@import 'elements/links';
+
+
+// Objects and abstractions
+@import 'objects/grid';
+@import 'objects/wrappers';
+
+
+// COMPONENTS
+// -----------------------------------------------------------------------------
+// From here on you can import your component specifc SASS files.
+// We recommend to create a SASS file per html component and name it alike. This
+// keeps things organized and you can apply styles changes on a component level.
+// This is pretty powerful once you get the hang out of it.
+
+// Layouts
+@import 'components/layout-header';
+@import 'components/layout-footer';
+
+// Headers
+@import 'components/head';
+@import 'components/head-wide';
+@import 'components/subtitle';
+@import 'components/section-title';
+
+// Images
+@import 'components/image';
+@import 'components/image-row';
+@import 'components/image-full-bleed';
+
+// Lists
+@import 'components/bullet-list';
+@import 'components/event-list';
+
+// Text
+@import 'components/paragraph';
+@import 'components/quote';
+@import 'components/separator';
+
+// Author
+@import 'components/author-card';
+
+// Container
+@import 'components/article';
+@import 'components/container';
+@import 'components/container-feature';
+
+// Ad
+@import 'components/ad';
+
+// Teaser components
+@import 'components/teaser-feature-card';
+@import 'components/teaser-card';
+@import 'components/teaser-hero';
+@import 'components/teaser-gallery';
+
+// Placeholders
+@import 'components/placeholder';

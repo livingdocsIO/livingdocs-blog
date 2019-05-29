@@ -1,0 +1,54 @@
+// ------------------------------------
+// FULL BLEED IMAGE COMPONENT
+// ------------------------------------
+
+// Styles for the following component:
+// -> source/components/images/image-full-bleed.html
+
+.image-full-bleed {
+  position: relative;
+
+  min-height: 70vh;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+
+  margin-bottom: halve($base-spacing-unit);
+}
+
+
+.image-full-bleed__caption {
+  position: absolute;
+  left: $base-spacing-unit;
+  bottom: $base-spacing-unit;
+
+  padding: 0 14px;
+
+  color: $white;
+  letter-spacing: .08em;
+  @include font-size($micro-size); // 14px
+
+  // border-radius: 100px;
+  background-color: $text-color;
+}
+
+
+// Media queries
+@media (max-width: $mq-medium-article) {
+
+  .image-full-bleed {
+    min-height: 60vh;
+    background-attachment: unset;
+  }
+
+}
+
+@media (max-width: $mq-small) {
+
+  .image-full-bleed {
+    min-height: 40vh;
+  }
+}

@@ -17,6 +17,12 @@ module.exports = {
         }
       }
     },
+    {
+      resolve: `gatsby-plguin-sass`,
+      options: {
+        includePaths: ['src/resources/stylesheets/living-stories.scss']
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     {

@@ -1,0 +1,64 @@
+// -----------------------------------------------------------------------------
+// FEATURE CONTAINER COMPONENT
+// -----------------------------------------------------------------------------
+
+// Styles for the following component:
+// -> source/components/containers/feature-container.html
+
+.feature-container {
+  @extend %layout;
+  position: relative;
+  margin-bottom: $base-spacing-unit;
+  padding-bottom: $base-spacing-unit;
+
+  &::after {
+    bottom: 0;
+    position: absolute;
+    left: halve($base-spacing-unit);
+    right: halve($base-spacing-unit);
+
+    height: 1px;
+
+    background-color: $divider-color;
+
+    content: " ";
+  }
+}
+
+.feature-container__col {
+  @extend %layout__item;
+
+  &:first-child {
+    flex: 0 0 60%;
+  }
+
+  &:last-child {
+    flex: 0 0 40%
+  }
+}
+
+
+// Media Queries
+@media (max-width: $mq-medium) {
+  .feature-container {
+    flex-direction: column;
+  }
+  .feature-container__col {
+    flex-basis: 100%;
+  }
+  .feature-container__col:last-child {
+    padding-left: 3 * $base-spacing-unit;
+    padding-right: 3 * $base-spacing-unit;
+  }
+}
+
+@media (max-width: $mq-small) {
+  .feature-container__col:last-child {
+    padding-left: halve($base-spacing-unit);
+    padding-right: halve($base-spacing-unit);
+  }
+}
+
+@media (max-width: $mq-extra-small) {
+
+}

@@ -1,0 +1,51 @@
+// -----------------------------------------------------------------------------
+// QUOTE COMPONENT
+// -----------------------------------------------------------------------------
+
+// Styles for the following component:
+// -> source/components/text/quote.html
+
+.quote {
+  position: relative;
+  margin-top: double($base-spacing-unit);
+  padding-left: double($base-spacing-unit)-8px;
+  margin-bottom: double($base-spacing-unit);
+
+  border-left: 8px solid $corn;
+  margin-left: double(-$base-spacing-unit);
+}
+
+.quote__text {
+  margin-bottom: halve($base-spacing-unit);
+
+  line-height: 1.5;
+  font-style: italic;
+  @include font-size($epsilon-size, false);
+}
+
+.quote__source {
+  position: relative;
+}
+
+// Media Queries
+@media (max-width: $mq-medium-article) {
+  .quote {
+    margin-left: -$base-spacing-unit;
+    padding-left: $base-spacing-unit;
+  }
+
+  .quote__text {
+    @include font-size($zeta-size, false);
+  }
+}
+
+@media (max-width: $mq-small) {
+  .quote {
+    margin-left: 0;
+    padding-left: 20px;
+  }
+
+  .quote__text {
+    @include font-size($base-font-size, false);
+  }
+}

@@ -1,0 +1,28 @@
+<script type="ld-conf">
+  {
+    "name": "image-full-bleed",
+    "label": "Full Bleed Image",
+    "description": "Full width image with scrolling effect",
+    "allowedParents": [
+      "article-container",
+      "author-container",
+      "gallery-container",
+      "teaser-author-template",
+      "author-head",
+      "teaser-card-template",
+      "teaser-gallery-hero-template",
+      "teaser-gallery-template"
+    ],
+    "iconUrl": "https://livingdocs-assets.s3.amazonaws.com/magazine-design/assets/images/icons-components/icon_image.svg",
+    "directives": {
+      "image": {
+        "imageRatios": ["16:9", "1:1", "4:3", "3:4"],
+        "allowOriginalRatio": true
+      }
+    }
+  }
+</script>
+
+<div class="image-full-bleed" doc-image="image">
+  <figcaption class="image-full-bleed__caption" doc-editable="caption" doc-optional="true">Image caption</figcaption>
+</div>

@@ -1,0 +1,46 @@
+// -----------------------------------------------------------------------------
+// WRAPPERS
+// -----------------------------------------------------------------------------
+
+
+// Page-level constraining and wrapping elements.
+$wrapper-width:  1120px + double($base-spacing-unit);
+
+.wrapper {
+  @include clearfix();
+
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: $base-spacing-unit;
+  padding-left: $base-spacing-unit;
+}
+
+// Modifier
+.wrapper--default {
+  max-width: $wrapper-width;
+}
+
+.wrapper--narrow {
+  max-width: 676px + double($base-spacing-unit);
+}
+
+.wrapper--no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Media Queries
+@media (max-width: $mq-medium) {
+
+}
+
+@media (max-width: $mq-small) {
+
+}
+
+@media (max-width: $mq-small) {
+  .wrapper {
+    padding-left: halve($base-spacing-unit);
+    padding-right: halve($base-spacing-unit);
+  }
+}

@@ -1,0 +1,51 @@
+// ------------------------------------
+// IMAGE COMPONENT
+// ------------------------------------
+
+// Styles for the following component:
+// -> source/components/images/image.html
+
+.image {
+  position: relative;
+  margin-bottom: halve($base-spacing-unit);
+}
+
+.image > img {
+  margin-bottom: quarter($base-spacing-unit);
+}
+
+.image__caption {
+  position: absolute;
+  left: $base-spacing-unit;
+  bottom: $base-spacing-unit;
+
+  padding: 0 14px;
+
+  color: $white;
+  letter-spacing: .08em;
+  @include font-size($micro-size); // 14px
+
+  background-color: $text-color;
+}
+
+
+// Modifier: Wide image
+.image--wide {
+  margin-left: calc(50% - 35vw);
+  margin-right: calc(50% - 35vw);
+}
+
+
+// Media Queries
+@media (max-width: $mq-medium-article) {
+
+  .image--wide {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);  }
+
+}
+
+// Hide pixel for propublica
+img[src*="pixel.propublica.org"] {
+  display: none;
+}

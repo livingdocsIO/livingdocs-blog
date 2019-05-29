@@ -1,0 +1,22 @@
+<script type="ld-conf">
+{
+  "label": "Event",
+  "description": "Timeline events",
+  "allowedParents": ["article-container"],
+  "iconUrl": "https://livingdocs-assets.s3.amazonaws.com/magazine-design/assets/images/icons-components/icon_unordered_list.svg",
+  "directives": {
+    "event": {
+      "defaultComponents": {
+        "paragraph": "event-list-item"
+      },
+      "defaultContent": [
+        {
+          "component": "event-list-item"
+        }
+      ]
+    }
+  }
+}
+</script>
+
+<ul doc-container="event" class="event-list"></ul>
