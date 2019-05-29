@@ -9,6 +9,7 @@ module.exports = {
       options: {
         limit: 35, // defaults to 10, if there is none
         // The accessToken is accessed at buildtime and set in netlify in this case
+        // TODO PUT ENV TOKEN ON NETLIFY
         accessToken:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6InB1YmxpYy1hcGk6cmVhZCIsIm5hbWUiOiJibG9nIiwicHJvamVjdElkIjo0NDIsImNoYW5uZWxJZCI6NDM4LCJ0eXBlIjoiY2xpZW50IiwianRpIjoiNjQ0N2U0MDgtMDFiNC00MWQwLTkwY2EtMDE3YzNmZDBkMjYyIiwiY29kZSI6IjY0NDdlNDA4LTAxYjQtNDFkMC05MGNhLTAxN2MzZmQwZDI2MiIsImlhdCI6MTU1OTA3NDYxNn0.sYiKNTlCUVL2Sf3ufLgyi015VTgWuZNDzFEFqXAc6eA',
         design: {
