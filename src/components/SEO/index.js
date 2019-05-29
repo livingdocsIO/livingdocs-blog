@@ -1,5 +1,26 @@
-import Twitter from './twitter'
+/* eslint-disable max-len */
+/* eslint-disable no-console */
+import React from 'react'
 import Basic from './basic'
-import openGraph from './openGraph'
+import OpenGraph from './openGraph'
+import Twitter from './twitter'
 
-export {openGraph, Twitter, Basic}
+const warnPropMissing = prop => console.warn(`SEO: missing ${prop} for applying correct SEO information`)
+
+const seo = props => {
+  const {title, description, url} = props
+  if (!title) warnPropMissing('title')
+  if (!description) warnPropMissing('description')
+  if (!url) warnPropMissing('url')
+  return (
+    <>
+      <Basic title={title} description={description} />
+      <OpenGraph title={title} description={description} url={url} />
+      <Twitter />
+    </>
+  )
+}
+
+export default seo
+
+export {Basic, OpenGraph, Twitter}
