@@ -1,0 +1,46 @@
+// -----------------------------------------------------------------------------
+// BULLET LIST
+// -----------------------------------------------------------------------------
+
+// Styles for the following component:
+// -> source/components/lists/bullet-list.html
+// -> source/components/lists/bullet-list-item.html
+
+.bullet-list {
+  margin-left: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    margin-bottom: halve($base-spacing-unit);
+  }
+
+  li::after {
+    left: 0;
+    top: 11px;
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+    margin-left: -20px;
+
+    border-radius: 50%;
+    background-color: $seance;
+
+    content: "";
+  }
+}
+
+
+// Media queries
+@media (max-width: $mq-medium-article) {
+
+  .bullet-list li {
+    padding-left: 20px;
+
+    &::after {
+      margin-left: 0;
+    }
+  }
+
+}

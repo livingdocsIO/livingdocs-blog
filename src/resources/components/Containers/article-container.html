@@ -1,0 +1,55 @@
+<script type="ld-conf">
+  {
+    "name": "article-container",
+    "label": "Article Container",
+    "description": "Main container for articles",
+    "iconUrl": "https://livingdocs-assets.s3.amazonaws.com/magazine-design/assets/images/icons-components/icon_2_columns_uneven.svg",
+    "directives": {
+      "header": {
+        "allowedChildren": [
+          "head",
+          "head-wide"
+        ],
+        "defaultComponents": {
+          "paragraph": "paragraph",
+          "image": "image",
+          "html": "free-html"
+        }
+      },
+      "main": {
+        "allowedChildren": [
+          "free-html",
+          "iframe",
+          "tweet",
+          "subtitle",
+          "image",
+          "image-row",
+          "image-full-bleed",
+          "bullet-list",
+          "event-list",
+          "paragraph",
+          "separator",
+          "quote",
+          "whole",
+          "teaser-author",
+          "gallery-container",
+          "teaser-gallery-hero",
+          "teaser-gallery",
+          "teaser-card"
+        ],
+        "defaultComponents": {
+          "paragraph": "paragraph",
+          "image": "image",
+          "html": "free-html"
+        }
+      }
+    }
+  }
+</script>
+
+<article class="article-content">
+  <header class="article-content__header" doc-container="header"></header>
+  <div class="article-content__body">
+    <main class="article-content__main" doc-container="main"></main>
+  </div>
+</article>

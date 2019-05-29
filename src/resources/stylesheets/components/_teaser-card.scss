@@ -1,0 +1,221 @@
+// -----------------------------------------------------------------------------
+// TEASER CARD COMPONENT
+// -----------------------------------------------------------------------------
+
+// Styles for the following components:
+// -> source/components/teaser/teaser-card.html
+// -> source/components/teaser/teaser-card-author.html
+// -> source/components/teaser/teaser-card-numbered.html
+// -> source/components/teaser/teaser-card-sidebar.html
+
+.teaser-card {
+  display: flex;
+  margin-bottom: $base-spacing-unit;
+}
+
+.teaser-card__image {
+  flex: 0 0 auto;
+  width: 200px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.teaser-card__body {
+  flex: 1 1 auto;
+  margin-left: $base-spacing-unit;
+}
+
+.teaser-card__caption {
+  position: absolute;
+  left: halve($base-spacing-unit);
+  bottom: halve($base-spacing-unit);
+
+  padding: 2px 8px;
+
+  color: #fff;
+  @include font-size($mili-size, false);
+
+  border-radius: 2px;
+  background-color: $label-color;
+}
+
+.teaser-card__icon {
+  top: -1px;
+  position: relative;
+
+  width: 24px;
+  height: 24px;
+  max-width: 20px;
+  margin-right: 2px;
+  vertical-align: middle;
+
+  transition: transform 150ms;
+
+  path {
+    fill: $white;
+  }
+}
+
+.teaser-card__flag {
+  display: inline-block;
+
+  font-weight: bold;
+  color: $secondary-color;
+  letter-spacing: .05em;
+  @include font-size(11px, false);
+  text-transform: uppercase;
+}
+
+.teaser-card__number {
+  margin-bottom: 10px;
+  @include font-size($alpha-size, false);
+}
+
+.teaser-card__title {
+  margin-bottom: 0;
+  @include font-size($base-font-size, false);
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.teaser-card__title a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.teaser-card__text {
+  position: relative;
+
+  max-height: 3em;
+  margin-bottom: quarter($base-spacing-unit);
+
+  @include font-size($mili-size, false);
+
+  overflow: hidden;
+
+  &:after {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+
+    width: 15%;
+    height: 1.2em;
+
+    text-align: right;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+
+    content: "";
+  }
+}
+
+.teaser-card__byline {
+  margin-left: 0;
+  margin-bottom: 0;
+
+  color: rgba(0,0,0,.54);
+  @include font-size($mili-size);
+
+  list-style: none;
+  overflow: hidden;
+}
+
+.teaser-card__byline li {
+  display: inline-block;
+  margin-right: quarter($base-spacing-unit);
+
+  @include font-size($micro-size);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.teaser-card__byline li a {
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Hover behaviour
+.teaser-card:hover, .teaser-hero:hover {
+  .teaser-card__icon {
+    transform: scale(1.15);
+  }
+}
+
+
+
+// Modifier: Numberer
+.teaser-card--numbered {
+  display: flex;
+  align-items: center;
+}
+
+.teaser-card--numbered .teaser-card__byline {
+  margin-bottom: 0;
+}
+
+.teaser-card--numbered .teaser-card__number {
+  width: 8.33%;
+  margin-right: $base-spacing-unit;
+
+  text-align: center;
+}
+
+.teaser-card--numbered .teaser-card__number::before {
+  counter-increment: section;
+  content: counter(section);
+}
+
+.teaser-card--numbered .teaser-card__body {
+  flex: 1;
+}
+
+
+// Modifier: Author card
+.teaser-card--author {
+  display: flex;
+  align-items: center;
+}
+
+.teaser-card--author .teaser-card__figure {
+  width: 128px;
+  margin-right: $base-spacing-unit;
+
+  text-align: center;
+}
+
+.teaser-card--author .teaser-card__body {
+  flex: 1;
+}
+
+// Media Queries
+@media (max-width: $mq-medium) {
+
+}
+
+@media (max-width: $mq-extra-small) {
+  .teaser-card {
+    flex-direction: row-reverse;
+  }
+
+  .teaser-card__image {
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
+  }
+
+  .teaser-card__body {
+    margin-left: 0;
+    margin-right: halve($base-spacing-unit);
+  }
+}

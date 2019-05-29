@@ -1,0 +1,14 @@
+// -----------------------------------------------------------------------------
+// SUBTITLE COMPONENT
+// -----------------------------------------------------------------------------
+
+// Styles for the following component:
+// -> source/components/headers/subtitle.html
+
+.subtitle {
+  @include font-size($zeta-size, false);
+
+  span {
+    border-bottom: 2px solid $corn;
+  }
+}

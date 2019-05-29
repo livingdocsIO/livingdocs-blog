@@ -1,0 +1,90 @@
+// -----------------------------------------------------------------------------
+// EVENT LIST
+// -----------------------------------------------------------------------------
+
+// Styles for the following component:
+// -> source/components/lists/event-list.html
+// -> source/components/lists/event-list-item.html
+
+.event-list {
+  margin-left: 0;
+  list-style: none;
+}
+
+.event-list__item {
+  display: flex;
+
+  // position: relative;
+
+  // margin-top: halve($base-spacing-unit);
+
+  p {
+    margin-bottom: 0;
+    padding-bottom: $base-spacing-unit;
+    padding-left: halve($base-spacing-unit);
+
+    border-left: 4px solid $seance;
+    // @include font-size($mili-size, false);
+  }
+
+  &:last-child p {
+    padding-bottom: 0;
+  }
+}
+
+.event-list__time {
+  position: relative;
+
+  flex: 0 0 120px;
+  max-width: 120px;
+  padding-right: 15px;
+  margin-left: -120px - 4px - halve($base-spacing-unit);
+
+  text-align: right;
+  // @include font-size($mili-size);
+  // position: absolute;
+
+  color: $seance;
+
+  time, span {
+    display: block;
+  }
+
+  time {
+    font-weight: 700;
+  }
+
+  span {
+    @include font-size($micro-size, false);
+  }
+}
+
+
+// Media queries
+@media (max-width: $mq-medium-article) {
+
+  .event-list__item {
+    flex-direction: column;
+
+    p {
+      padding-left: 0;
+      border-left: none;
+    }
+  }
+
+  .event-list__time {
+    max-width: 100%;
+    flex-basis: auto;
+
+    margin-left: 0;
+    padding-right: 0;
+
+    text-align: left;
+
+    time, span {
+      display: inline-block;
+    }
+  }
+
+
+}
