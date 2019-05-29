@@ -12,8 +12,8 @@ module.exports = {
         accessToken:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6InB1YmxpYy1hcGk6cmVhZCIsIm5hbWUiOiJibG9nIiwicHJvamVjdElkIjo0NDIsImNoYW5uZWxJZCI6NDM4LCJ0eXBlIjoiY2xpZW50IiwianRpIjoiNjQ0N2U0MDgtMDFiNC00MWQwLTkwY2EtMDE3YzNmZDBkMjYyIiwiY29kZSI6IjY0NDdlNDA4LTAxYjQtNDFkMC05MGNhLTAxN2MzZmQwZDI2MiIsImlhdCI6MTU1OTA3NDYxNn0.sYiKNTlCUVL2Sf3ufLgyi015VTgWuZNDzFEFqXAc6eA',
         design: {
-          name: 'living-times',
-          version: '0.0.19'
+          name: 'living-stories',
+          version: '0.0.2'
         }
       }
     },
