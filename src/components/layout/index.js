@@ -26,7 +26,15 @@ const Layout = ({children}) => (
       <noscript>Please enable Javascript</noscript>
     </Helmet>
     <Header />
-    <div>{children}</div>
+    <main className="wrapper wrapper--default" role="main">
+      <div className="container container--breath">
+        <div className="container-grid container-grid--whole">
+          <div className="container-grid__item">
+            {children}
+          </div>
+        </div>
+      </div>
+    </main>
     <Footer />
   </div>
 )
