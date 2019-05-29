@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import Header from '../header'
 import Footer from '../footer'
 import favicon from '../resources/favicon.png'
-import css from '../resources/living-times014.css'
+import '../../resources/stylesheets/living-stories.scss'
 import {metadata} from '../../../config.js'
 
 // Set a basic set of SEO data
@@ -23,7 +23,6 @@ const Layout = ({children}) => (
       <meta property={metadata.twitterId} content="id" />
 
       <link title="timeline-styles" rel="shortcut icon" type="image/png" href={favicon} />
-      <link title="timeline-styles" type="text/css" href={css.toString()} />
       <noscript>Please enable Javascript</noscript>
     </Helmet>
     <Header />
