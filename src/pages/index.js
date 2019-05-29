@@ -5,17 +5,22 @@ import Layout from '../components/layout'
 
 // The homepage. This could also be done in Livingdocs
 class Homepage extends React.Component {
-
   render () {
     return (
       <Layout>
-        {this.props.data.allPublications.edges.map(data =>
-          <BlogCard
-            {...data.node.publication.metadata}
-            slug={data.node.extra.slug}
-            key={data.node.publication.systemdata.documentId}
-          />
-        )}
+        <div className="container container--breath">
+          <div className="container-grid container-grid--whole">
+            <div className="container-grid__item">
+              {this.props.data.allPublications.edges.map(data => (
+                <BlogCard
+                  {...data.node.publication.metadata}
+                  slug={data.node.extra.slug}
+                  key={data.node.publication.systemdata.documentId}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </Layout>
     )
   }
