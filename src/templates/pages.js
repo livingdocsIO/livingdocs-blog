@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql, navigate} from 'gatsby'
 import Layout from '../components/layout'
-import {Twitter, openGraph, Basic} from '../components/SEO'
+import SEO from '../components/SEO'
 import {metadata} from '../../config'
 
 // The pages created in gatsby-node.js will use this component("template" by gatsby convention)
@@ -43,11 +43,7 @@ class BlogPost extends React.Component {
     const html = this.props.data.publications.extra.html
     return (
       <Layout>
-        {/* SEO start, information for the html <head></head> */}
-        <Basic title={title} description={description}/>
-        <openGraph title={title} description={description} url={url} />
-        <Twitter />
-
+        <SEO title={title} description={description} url={url}/>
         <div dangerouslySetInnerHTML={{__html: html}} />
       </Layout>
     )

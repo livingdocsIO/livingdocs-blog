@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import Layout from '../components/layout'
-import {Twitter, openGraph, Basic} from '../components/SEO'
+import SEO from '../components/SEO'
 import AuthorDetails from '../components/authorDetails'
 import {metadata} from '../../config'
 
@@ -20,10 +20,7 @@ const AuthorPage = props => {
     props.data.publications.publication.metadata.authorImage.originalUrl
   return (
     <Layout>
-      {/* SEO information for the html <head></head> */}
-      <Basic title={title} description={profile} />
-      <openGraph title={title} description={profile} url={url} />
-      <Twitter/>
+      <SEO title={title} description={profile} url={url}/>
 
       <AuthorDetails
         profile={profile}
