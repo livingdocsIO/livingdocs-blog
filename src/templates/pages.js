@@ -70,11 +70,6 @@ export const query = graphql`
     publications(extra: {slug: {eq: $slug}}) {
       publication {
         metadata {
-          authors {
-            references {
-              id
-            }
-          }
           title
           description
         }

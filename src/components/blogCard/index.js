@@ -40,7 +40,7 @@ const returnAuthorTitle = id => (
 )
 
 const BlogTeaser = props => {
-  const {title, publishDate, teaserImage, flag, description, authors, slug} = props
+  const {title, publishDate, teaserImage, description, authors, slug} = props
   return (
     <div className="placeholder--teaser-card teaser-card--left-aligned-img">
       <div className="teaser-card">
@@ -54,7 +54,6 @@ const BlogTeaser = props => {
           </Link>
         </figure>
         <div className="teaser-card__body">
-          <span className="teaser-card__flag">{flag}</span>
           <h2 className="teaser-card__title">
             <Link to={slug}> {title}</Link>
           </h2>
