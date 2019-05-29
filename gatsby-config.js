@@ -49,7 +49,7 @@ module.exports = {
         background_color: '#6b37bf',
         theme_color: '#6b37bf',
         display: 'minimal-ui',
-        icon: 'src/components/resources/favicon.png'
+        icon: 'src/resources/assets/images/favicon.png'
       }
     }
     // 'gatsby-plugin-offline' caused some problems
