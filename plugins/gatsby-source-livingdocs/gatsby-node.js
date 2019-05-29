@@ -33,7 +33,6 @@ exports.sourceNodes = ({actions}, configOptions) => {
       content: publication.content,
       design
     })
-
     if (
       publication.systemdata.documentType === 'article' ||
       publication.systemdata.documentType === 'page'
@@ -49,10 +48,7 @@ exports.sourceNodes = ({actions}, configOptions) => {
 
   // Create your node object
   const processPublication = async (publication, design) => {
-    console.log('UEUHWGUH393skdg')
-    console.log(publication)
     const html = await getPublication(publication, design)
-    console.log(html)
     const nodeData = {
       id: `${publication.systemdata.documentId}`,
       parent: `__SOURCE__`,
@@ -83,6 +79,7 @@ exports.sourceNodes = ({actions}, configOptions) => {
       version: configOptions.design.version
     })
     if (!design) console.warn('ALERT! livingdocs-gatsby-plugin: design could not be loaded')
+
     for (const publication of allPublications) {
       const nodeData = await processPublication(publication, design)
       createNode(nodeData)

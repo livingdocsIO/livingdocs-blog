@@ -46,13 +46,13 @@ exports.createPages = async ({graphql, actions}) => {
 
     // AuthorPages
     if (node.publication.systemdata.contentType === 'author') {
-      createPage({
-        path: node.extra.slug,
-        component: path.resolve('./src/templates/authorPage.js'),
-        context: {
-          slug: node.extra.slug
-        }
-      })
+      // createPage({
+      //   path: node.extra.slug,
+      //   component: path.resolve('./src/templates/authorPage.js'),
+      //   context: {
+      //     slug: node.extra.slug
+      //   }
+      // })
     }
     // Pages
     if (node.publication.systemdata.contentType === 'page') {

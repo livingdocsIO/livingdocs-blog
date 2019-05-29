@@ -46,16 +46,10 @@ class Homepage extends React.Component {
         {this.createFilterButtons()}
         {this.props.data.allPublications.edges.map(data =>
           this.filterElements(
-            data.node.publication.metadata.flag.toLowerCase(),
             <BlogCard
-              // title, description, flag, publishDate, teaserImage
               {...data.node.publication.metadata}
               slug={data.node.extra.slug}
               key={data.node.publication.systemdata.documentId}
-              authors={
-                data.node.publication.metadata.authors &&
-                data.node.publication.metadata.authors.references
-              }
             />
           )
         )}
@@ -75,13 +69,7 @@ export const query = graphql`
           }
           publication {
             metadata {
-              authors {
-                references {
-                  id
-                }
-              }
               title
-              flag
               description
               publishDate
               teaserImage {
