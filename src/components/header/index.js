@@ -1,53 +1,27 @@
 import React from 'react'
-import {Link} from 'gatsby'
-import logo from './ld_logo_final.png'
+import logo from '../../resources/assets/images/li-stories-logo.svg'
 
 const Header = () => (
   <header className="page-head" role="banner">
     <div>
-      <div className="logo">
-        <Link to="/">
-          <img src={logo} alt="logo" />
-        </Link>
-      </div>
-      <nav className="meta-nav">
-        <div className="meta-nav__item">
-          <a href="https://github.com/livingdocsIO/magazine-example">Source Code</a>
-        </div>
-        <div className="meta-nav__item meta-nav__item--highlight">
-          <a href="https://www.livingdocs.io/pssst" target="blank_">
-            Subscribe
+      <div className="wrapper wrapper--default">
+        <div className="meta-bar">
+          <a className="logo" href="/">
+            <img src={logo} alt="Living Stories" />
           </a>
+          <nav className="meta-nav">
+            <div className="meta-nav__item">
+              <a href="https://github.com/livingdocsIO/blog-example" target="_blank">Source Code</a>
+            </div>
+            <div className="meta-nav__item meta-nav__item--highlight">
+              <a href="https://edit.livingdocs.io/signup">Sign Up</a>
+            </div>
+          </nav>
         </div>
-      </nav>
-      <div className="nav-container">
-        <nav className="main-nav" role="navigation">
-          <div className="main-nav__item">
-            <Link to="/">articles</Link>
-          </div>
-          <div className="main-nav__item">
-            <Link to="/authors">explore authors</Link>
-          </div>
-          <div className="main-nav__item">
-            <Link to="/44444">404</Link>
-          </div>
-          <div className="main-nav__item">
-            <Link to="/testing">Testing</Link>
-          </div>
-        </nav>
       </div>
-
-      {/*  Ad
-      <div className="ad ad--head">
-        <a href="https://www.livingdocs.io" target="_blank" rel=" noopener noreferrer">
-          <img
-            alt="test"
-            src="/assets/images/ads/billboards/ad-secret.gif"
-            hidden=""
-          />
-        </a>
+      <div className="main-nav-container">
+        <nav className="wrapper wrapper--default main-nav" role="navigation" />
       </div>
-      */}
     </div>
   </header>
 )
