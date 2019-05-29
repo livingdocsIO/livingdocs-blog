@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql, navigate} from 'gatsby'
 import Layout from '../components/layout'
-import {Twitter, Facebook, Basic} from '../components/SEO'
+import {Twitter, openGraph, Basic} from '../components/SEO'
 import {metadata} from '../../config'
 
 // The pages created in gatsby-node.js will use this component("template" by gatsby convention)
@@ -34,35 +34,26 @@ class BlogPost extends React.Component {
     navigate(path)
   }
   render () {
-    // SEO - description (Page, twitter, facebook)
+  // SEO - description | title | url
     const description = this.props.data.publications.publication.metadata.description
-
-    // SEO - title (Page, twitter, facebook)
     const title = this.props.data.publications.publication.metadata.title
+    const url = metadata.url
 
     // HTML - rendering the html-body
     const html = this.props.data.publications.extra.html
-
-    // SEO - url (Page, twitter, facebook)
-    const url = metadata.url
     return (
       <Layout>
         {/* SEO start, information for the html <head></head> */}
-        <Basic
-          title={title}
-          description={description}
-        />
-        <Twitter title={title} description={description} url={url} />
-        <Facebook title={title} description={description} url={url} />
-        {/* SEO start, information for the html <head></head> */}
+        <Basic title={title} description={description}/>
+        <openGraph title={title} description={description} url={url} />
+        <Twitter />
+
         <div dangerouslySetInnerHTML={{__html: html}} />
       </Layout>
     )
   }
 }
 
-// in gatsby-node.js we gave a context "slug"
-// we can use that to filter the matching publication and slug now
 export const query = graphql`
   query($slug: String!) {
     publications(extra: {slug: {eq: $slug}}) {

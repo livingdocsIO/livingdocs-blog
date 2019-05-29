@@ -1,34 +1,30 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import Layout from '../components/layout'
-import {Twitter, Facebook, Basic} from '../components/SEO'
+import {Twitter, openGraph, Basic} from '../components/SEO'
 import AuthorDetails from '../components/authorDetails'
 import {metadata} from '../../config'
 
 // The pages created in gatsby-node.js will use this component("template" by gatsby convention)
 // The data is recieved by the graphQL query from the bottom of this component
 const AuthorPage = props => {
-  // SEO - description (Page, twitter, facebook)
+  // SEO - description | title | url
   const profile = props.data.publications.publication.metadata.profile
-
-  // SEO - title (Page, twitter, facebook)
   const title = props.data.publications.publication.metadata.title
-
-  const biography = props.data.publications.publication.metadata.biography
-
-  // SEO - url (Page, twitter, facebook)
   const url = metadata.url
 
+
+  const biography = props.data.publications.publication.metadata.biography
   const authorImage =
     props.data.publications.publication.metadata.authorImage &&
     props.data.publications.publication.metadata.authorImage.originalUrl
   return (
     <Layout>
-      {/* SEO start, information for the html <head></head> */}
+      {/* SEO information for the html <head></head> */}
       <Basic title={title} description={profile} />
-      <Twitter title={title} description={profile} url={url} />
-      <Facebook title={title} description={profile} url={url} />
-      {/* SEO start, information for the html <head></head> */}
+      <openGraph title={title} description={profile} url={url} />
+      <Twitter/>
+
       <AuthorDetails
         profile={profile}
         title={title}
