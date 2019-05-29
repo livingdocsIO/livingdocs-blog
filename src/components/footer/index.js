@@ -2,7 +2,7 @@ import React from 'react'
 
 const footer = () => (
   // eslint-disable-next-line
-  <footer class="page-foot" role="footer">
+  <footer className="page-foot" role="footer">
     <div className="wrapper wrapper--default">
       <nav className="page-foot-nav">
         <ul className="footer-links footer-links--left-aligned">
