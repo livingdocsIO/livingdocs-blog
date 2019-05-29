@@ -1,7 +1,6 @@
 import React from 'react'
 import {graphql, navigate} from 'gatsby'
 import Layout from '../components/layout'
-import SocialMediaShareButtons from '../components/socialMediaButtons'
 import {Twitter, Facebook, Basic} from '../components/SEO'
 import {metadata} from '../../config'
 
@@ -57,7 +56,6 @@ class BlogPost extends React.Component {
         <Facebook title={title} description={description} url={url} />
         {/* SEO start, information for the html <head></head> */}
         <div dangerouslySetInnerHTML={{__html: html}} />
-        <SocialMediaShareButtons title={title} description={description} />
       </Layout>
     )
   }

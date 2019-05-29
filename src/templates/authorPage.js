@@ -2,7 +2,6 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import Layout from '../components/layout'
 import {Twitter, Facebook, Basic} from '../components/SEO'
-import SocialMediaShareButtons from '../components/socialMediaButtons'
 import AuthorDetails from '../components/authorDetails'
 import {metadata} from '../../config'
 
@@ -36,7 +35,6 @@ const AuthorPage = props => {
         biography={biography}
         authorImage={authorImage}
       />
-      <SocialMediaShareButtons title={title} profile={profile} />
     </Layout>
   )
 }
