@@ -11,7 +11,7 @@ module.exports = {
         // The accessToken is accessed at buildtime and set in netlify in this case
         // TODO PUT ENV TOKEN ON NETLIFY
         accessToken:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6InB1YmxpYy1hcGk6cmVhZCIsIm5hbWUiOiJibG9nIiwicHJvamVjdElkIjo0NDIsImNoYW5uZWxJZCI6NDM4LCJ0eXBlIjoiY2xpZW50IiwianRpIjoiNjQ0N2U0MDgtMDFiNC00MWQwLTkwY2EtMDE3YzNmZDBkMjYyIiwiY29kZSI6IjY0NDdlNDA4LTAxYjQtNDFkMC05MGNhLTAxN2MzZmQwZDI2MiIsImlhdCI6MTU1OTA3NDYxNn0.sYiKNTlCUVL2Sf3ufLgyi015VTgWuZNDzFEFqXAc6eA',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6InB1YmxpYy1hcGk6cmVhZCIsIm5hbWUiOiJkZCIsInByb2plY3RJZCI6NDMyLCJjaGFubmVsSWQiOjQyOCwidHlwZSI6ImNsaWVudCIsImp0aSI6ImM2OTEzNWE3LWM5ZTUtNDZkOC05NGQ0LTI0ODkxNmE3MDlmMyIsImNvZGUiOiJjNjkxMzVhNy1jOWU1LTQ2ZDgtOTRkNC0yNDg5MTZhNzA5ZjMiLCJpYXQiOjE1NTk5MTExNTN9.56GvRprcksyBnWXNUMyNHg2zV9Cti5UboOleCPduuhQ',
         design: {
           name: 'living-stories',
           version: '0.0.2'
