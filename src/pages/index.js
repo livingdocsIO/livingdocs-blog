@@ -67,6 +67,11 @@ export const query = graphql`
           }
           publication {
             metadata {
+              authors {
+                references {
+                  id
+                }
+              }
               title
               description
               publishDate
