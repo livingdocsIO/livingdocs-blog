@@ -5,6 +5,7 @@ import {resolveAuthorName} from '../helpers/resolveAuthorName'
 const BlogTeaser = props => {
   const {title, publishDate, teaserImage, description, authors, slug} = props
   const url = teaserImage && teaserImage.originalUrl
+  const date = new Date(publishDate).toLocaleDateString('de-DE')
   return (
     <div className="placeholder--teaser-card">
       <div className="teaser-card">
@@ -23,7 +24,7 @@ const BlogTeaser = props => {
           </p>
           <ul className="teaser-card__byline">
             {authors ? authors.references.map(author => resolveAuthorName(author.id)) : ''}
-            <li>{publishDate}</li>
+            <li>{date}</li>
           </ul>
         </div>
       </div>
