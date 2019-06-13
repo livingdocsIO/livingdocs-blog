@@ -15,17 +15,10 @@
 }
 
 .image__caption {
-  position: absolute;
-  left: $base-spacing-unit;
-  bottom: $base-spacing-unit;
-
-  padding: 0 14px;
-
-  color: $white;
+  text-align: center;
   letter-spacing: .08em;
+  color: $secondary-color;
   @include font-size($micro-size); // 14px
-
-  background-color: $text-color;
 }
 
 

@@ -6,17 +6,20 @@
 // -> source/components/text/seperator.html
 
 .separator {
-  border: none;
-  height: 4px;
   clear: both;
-  margin-left: 33%;
-  margin-right: 33%;
-  padding-top: double($base-spacing-unit);
-  padding-bottom: double($base-spacing-unit);
+  border: none;
+  height: 40px;
+  padding-top: $base-spacing-unit;
+  padding-bottom: $base-spacing-unit;
 
   &:before {
     content: '';
     display: block;
-    border-top: 4px solid $corn;
+
+    height: 40px;
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("../assets/images/bird.svg");
   }
 }

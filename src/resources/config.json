@@ -1,8 +1,8 @@
 {
-  "name": "living-stories",
-  "label": "Living Stories",
+  "name": "livingdocs-blog",
+  "label": "Livingdocs Blog",
   "version": "0.0.2",
-  "license": "Copyright (c) 2018 Livingdocs AG, all rights reserved",
+  "license": "Copyright (c) 2019 Livingdocs AG, all rights reserved",
 
   "assets": {
     "basePath": "https://cdn.livingdocs.io/designs/living-stories/0.0.2",

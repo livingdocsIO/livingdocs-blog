@@ -1,10 +1,5 @@
 // -----------------------------------------------------------------------------
-// SUBTITLE COMPONENT
+// HELPER CLASSES
 // -----------------------------------------------------------------------------
 
-// Styles for the following component:
-// -> source/components/headers/subtitle.html
-
-.subtitle {
-  @include font-size($zeta-size, false);
-}
+$font-bold: 500;

@@ -14,16 +14,12 @@
 .event-list__item {
   display: flex;
 
-  // position: relative;
-
-  // margin-top: halve($base-spacing-unit);
-
   p {
     margin-bottom: 0;
     padding-bottom: $base-spacing-unit;
     padding-left: halve($base-spacing-unit);
 
-    border-left: 4px solid $seance;
+    border-left: 4px solid $event;
     // @include font-size($mili-size, false);
   }
 
@@ -44,14 +40,14 @@
   // @include font-size($mili-size);
   // position: absolute;
 
-  color: $seance;
+  color: $event;
 
   time, span {
     display: block;
   }
 
   time {
-    font-weight: 700;
+    font-weight: $font-bold;
   }
 
   span {

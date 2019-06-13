@@ -6,13 +6,14 @@
 // -> source/components/headers/head-wide.html
 
 .head-wide {
-  margin-left: calc(50% - 48vw);
-  margin-right: calc(50% - 48vw);
+  margin-left: calc(50% - 40vw);
+  margin-right: calc(50% - 40vw);
   margin-bottom: double($base-spacing-unit);
 }
 
 .head-wide__container {
   display: flex;
+  flex-direction: column;
 
   align-items: center;
 }
@@ -22,9 +23,10 @@
 
   flex: 1 0 auto;
 
-  width: 50%;
-  height: 60vh;
-  min-height: 500px;
+  width: 100%;
+  height: 70vh;
+  min-height: auto;
+  margin-bottom: $base-spacing-unit;
 
   background-size: cover;
   background-position: center center;
@@ -33,9 +35,7 @@
 .head-wide__text {
   flex: 1 1 auto;
 
-  width: 50%;
-  padding-left: $base-spacing-unit;
-  padding-right: $base-spacing-unit;
+  max-width: 640px;
 }
 
 .head-wide__caption {
@@ -53,15 +53,13 @@
 }
 
 .head-wide__flag {
-  padding: 2px 8px;
   display: inline-block;
 
-  font-weight: 700;
-  color: $text-color;
+  color: $flag-color;
+  letter-spacing: .05em;
+  font-weight: $font-bold;
   text-transform: uppercase;
   @include font-size($micro-size, false);
-
-  background-color: $corn;
 
   > a {
     text-decoration: none;
@@ -71,8 +69,8 @@
 .head-wide__title {
   margin-bottom: halve($base-spacing-unit);
 
-  font-weight: bold;
-  @include font-size($gamma-size, false);
+  font-weight: $font-bold;
+  @include font-size($delta-size, false);
 }
 
 .head-wide__lead {
@@ -90,10 +88,6 @@
 
 // Media queries
 @media (max-width: 1150px) {
-  .head-wide__container {
-    flex-direction: column;
-  }
-
   .head-wide {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw)
@@ -105,30 +99,15 @@
     min-height: auto;
     margin-bottom: $base-spacing-unit;
   }
-
-  .head-wide__text {
-    width: 80%;
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 
 @media (max-width: $mq-medium-article) {
   .head-wide__title {
-    @include font-size($gamma-size, false);
-  }
-
-  .head-wide__text {
-    width: 100%;
-    max-width: 640px;
+    // @include font-size($gamma-size, false);
   }
 }
 
 @media (max-width: 660px) {
-  .head-wide {
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
 
 @media (max-width: $mq-small) {

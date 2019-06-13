@@ -12,6 +12,10 @@
   margin-right: calc(52% - 50vw);
 }
 
+.image-row__grid {
+  margin-bottom: halve($base-spacing-unit);
+}
+
 .image-row__image {
   width: 100%;
   height: 0;
@@ -22,16 +26,12 @@
 
 .image-row__caption {
   left: 50%;
-  position: absolute;
-  bottom: halve($base-spacing-unit);
+  position: relative;
 
-  padding: 0 14px;
-
-  color: $white;
+  text-align: center;
   letter-spacing: .08em;
+  color: $secondary-color;
   @include font-size($micro-size, false);
-
-  background-color: $text-color;
 
   transform: translateX(-50%);
 }

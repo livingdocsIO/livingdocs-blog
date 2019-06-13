@@ -6,6 +6,10 @@
 // -> source/components/images/image-full-bleed.html
 
 .image-full-bleed {
+  margin-bottom: $base-spacing-unit;
+}
+
+.image-full-bleed__image {
   position: relative;
 
   min-height: 70vh;
@@ -21,18 +25,10 @@
 
 
 .image-full-bleed__caption {
-  position: absolute;
-  left: $base-spacing-unit;
-  bottom: $base-spacing-unit;
-
-  padding: 0 14px;
-
-  color: $white;
+  text-align: center;
   letter-spacing: .08em;
+  color: $secondary-color;
   @include font-size($micro-size); // 14px
-
-  // border-radius: 100px;
-  background-color: $text-color;
 }
 
 

@@ -6,25 +6,21 @@
 // -> source/components/headers/head.html
 
 .head {
-  // width: 640px;
-  // width: 80vw;
-  padding-top: 12vh;
-  padding-bottom: 7vh;
-  margin-left: calc(50% - 35vw);
-  margin-right: calc(50% - 35vw);
+  // padding-top: 12vh;
+  // padding-bottom: 7vh;
+  // margin-left: calc(50% - 35vw);
+  // margin-right: calc(50% - 35vw);
   margin-bottom: double($base-spacing-unit);
 }
 
 .head__flag {
-  padding: 2px 8px;
   display: inline-block;
 
-  font-weight: 700;
-  color: $text-color;
+  color: $flag-color;
+  letter-spacing: .05em;
+  font-weight: $font-bold;
   text-transform: uppercase;
   @include font-size($micro-size, false);
-
-  background-color: $corn;
 
   > a {
     text-decoration: none;
@@ -34,8 +30,8 @@
 .head__title {
   margin-bottom: halve($base-spacing-unit);
 
-  font-weight: bold;
-  @include font-size($beta-size, false);
+  font-weight: $font-bold;
+  @include font-size($gamma-size, false);
 }
 
 .head__lead {
