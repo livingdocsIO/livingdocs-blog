@@ -57,7 +57,10 @@ exports.sourceNodes = ({actions}, configOptions) => {
         contentDigest: crypto.createHash(`md5`).digest(`hex`)
       },
       children: [],
-      publication, // the graphQL content, schema automatically created by gatsby
+      // publication: the graphQL content, schema automatically created by gatsby
+      // TODO, we may want to look into generating it first, this approach is error prone
+      // incase there is no twitter script or certain metadata and the delivery requires it
+      publication,
       extra: {
         slug: slugify(publication.metadata.title, publication.systemdata.documentId),
         html
@@ -73,7 +76,6 @@ exports.sourceNodes = ({actions}, configOptions) => {
       Are you sure you've added published documents to livingdocs?
       `)
     }
-
     const design = await liClient.getDesign({
       name: configOptions.design.name,
       version: configOptions.design.version

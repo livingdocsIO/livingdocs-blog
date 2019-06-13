@@ -2,6 +2,9 @@
 
 This blog-starter is supposed to help you starting out with Livingdocs as a headless CMS. We assume you haven't set up any custom configurations and use our magazine-component library.
 
+// TODO(rm plugin data from public-blog example): You hav to configure the graphQL schema to fit your usecase.
+// We provided a bare-minimum, which can be enhanced with livingdocs metadata-plugins.
+
 ## Quick start
 
 1.  **Clone this repo**
