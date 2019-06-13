@@ -1,43 +1,6 @@
 import React from 'react'
-import {Link, StaticQuery, graphql} from 'gatsby'
-
-// query for all authors
-const returnAuthorTitle = id => (
-  <StaticQuery
-    key={id}
-    query={graphql`
-      query returnAuthorTitleSlugId {
-        allPublications(filter: {publication: {systemdata: {contentType: {eq: "author"}}}}) {
-          edges {
-            node {
-              id
-              extra {
-                slug
-              }
-              publication {
-                metadata {
-                  title
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    // compare the id's of all authors to the given id
-    render={data => {
-      const author = data.allPublications.edges.find(publication => publication.node.id === id)
-      return (
-        author && (
-          // return the author and the slug of the author page
-          <Link to={author.node.extra.slug} key={author.node.id}>
-            {author.node.publication.metadata.title},{' '}
-          </Link>
-        )
-      )
-    }}
-  />
-)
+import {Link} from 'gatsby'
+import {resolveAuthorName} from '../helpers/resolveAuthorName'
 
 const BlogTeaser = props => {
   const {title, publishDate, teaserImage, description, authors, slug} = props
@@ -59,7 +22,7 @@ const BlogTeaser = props => {
             {description}
           </p>
           <ul className="teaser-card__byline">
-            <li>by {authors ? authors.map(author => returnAuthorTitle(author.id)) : 'mystery'}</li>
+            {authors ? authors.references.map(author => resolveAuthorName(author.id)) : ''}
             <li>{publishDate}</li>
           </ul>
         </div>
