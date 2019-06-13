@@ -3,6 +3,7 @@ import {graphql} from 'gatsby'
 import AuthorCard from '../components/authorCard'
 import Layout from '../components/layout'
 
+// TODO, imo this page isn't needed yet
 const browseAuthors = ({data}) => (
   <Layout>
     {data.allPublications.edges.map(author => (
