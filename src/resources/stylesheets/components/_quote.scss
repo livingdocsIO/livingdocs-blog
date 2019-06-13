@@ -8,19 +8,20 @@
 .quote {
   position: relative;
   margin-top: double($base-spacing-unit);
-  padding-left: double($base-spacing-unit)-8px;
+  padding-left: $base-spacing-unit - 4px;
   margin-bottom: double($base-spacing-unit);
 
-  border-left: 8px solid $corn;
-  margin-left: double(-$base-spacing-unit);
+  border-left: 4px solid $quote;
+  margin-left: -$base-spacing-unit;
 }
 
 .quote__text {
   margin-bottom: halve($base-spacing-unit);
 
+  color: $quote;
   line-height: 1.5;
-  font-style: italic;
-  @include font-size($epsilon-size, false);
+  font-weight: $font-bold;
+  @include font-size($zeta-size, false);
 }
 
 .quote__source {

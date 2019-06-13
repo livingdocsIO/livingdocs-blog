@@ -3,9 +3,9 @@
 // -----------------------------------------------------------------------------
 
 // Getting fonts from Google Fonts
-// @import url('https://fonts.googleapis.com/css?family=Gothic+A1:400,700');
-// @import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,700,800');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,800');
+@import url("https://use.typekit.net/gsf7ipu.css");
+
 
 
 // Scale used for defining type sizes:
@@ -19,8 +19,7 @@ $base-text-color:       $text-color;
 
 
 // Font stacks
-// $sans-serif-font:       'Gothic A1', sans-serif;
-$sans-serif-font:       'Montserrat', sans-serif;
+$sans-serif-font:       'akzidenz-grotesk-next', sans-serif;
 
 
 
@@ -53,6 +52,6 @@ $base-spacing-unit:     $base-line-height;
 
 // Set up vars for mediaqueries
 $mq-medium:             1024px;
-$mq-medium-article:     930px; 
+$mq-medium-article:     930px;
 $mq-small:              780px;
 $mq-extra-small:        560px;

@@ -9,7 +9,7 @@
   @extend %layout;
   position: relative;
   margin-bottom: $base-spacing-unit;
-  padding-bottom: $base-spacing-unit;
+  // padding-bottom: $base-spacing-unit;
 
   &::after {
     bottom: 0;
