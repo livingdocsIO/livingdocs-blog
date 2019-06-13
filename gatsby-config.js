@@ -9,8 +9,7 @@ module.exports = {
       options: {
         limit: 35, // defaults to 10, if there is none
         // The accessToken is accessed at buildtime and set in netlify in this case
-        // TODO PUT ENV TOKEN ON NETLIFY
-        accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6InB1YmxpYy1hcGk6cmVhZCIsIm5hbWUiOiJkZCIsInByb2plY3RJZCI6NDMyLCJjaGFubmVsSWQiOjQyOCwidHlwZSI6ImNsaWVudCIsImp0aSI6ImM2OTEzNWE3LWM5ZTUtNDZkOC05NGQ0LTI0ODkxNmE3MDlmMyIsImNvZGUiOiJjNjkxMzVhNy1jOWU1LTQ2ZDgtOTRkNC0yNDg5MTZhNzA5ZjMiLCJpYXQiOjE1NTk5MTExNTN9.56GvRprcksyBnWXNUMyNHg2zV9Cti5UboOleCPduuhQ',
+        accessToken: process.env.accessToken,
         design: {
           name: 'living-stories',
           version: '0.0.2'
