@@ -13,7 +13,7 @@ import {navigate} from 'gatsby'
 class Layout extends React.Component {
 
   componentDidMount () {
-    // @TODO This is a hacky approach.
+    // This is a hacky approach.
     // Livingdocs will send a bunch of <a/> tags, we will addEventListeners for those.
     // We don't want to reload the page, because we lose a big chunk of performance.
     // that's why we swap out the <a/> behaviour with the gatsby "navigate", for internal links.

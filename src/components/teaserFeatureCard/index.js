@@ -49,7 +49,7 @@ const teaserFeatureCard = props => {
         <a
           className="teaser-feature-card__image"
           href={slug}
-          style={{backgroundImage: `url(${url})`}} // todo
+          style={{backgroundImage: `url(${url})`}}
         />
         <div className="teaser-feature-card__body">
           <span className="teaser-feature-card__flag">Technology</span>
