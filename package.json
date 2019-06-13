@@ -12,8 +12,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@livingdocs/node-sdk": "0.3.2",
-    "gatsby": "2.7.3",
+    "@livingdocs/node-sdk": "^0.3.4",
+    "gatsby": "^2.9.2",
     "gatsby-plugin-manifest": "2.1.1",
     "gatsby-plugin-offline": "2.1.1",
     "gatsby-plugin-react-helmet": "3.0.12",
