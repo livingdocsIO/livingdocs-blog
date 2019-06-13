@@ -10,7 +10,7 @@ const resolveAuthorName = id => (
   <StaticQuery
     key={id}
     query={graphql`
-      query returnAuthorTitleSlugId2 {
+      query returnAuthorTitle {
         allPublications(filter: {publication: {systemdata: {contentType: {eq: "author"}}}}) {
           edges {
             node {
