@@ -19,7 +19,7 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plguin-sass`,
+      resolve: `gatsby-plugin-sass`,
       options: {
         includePaths: ['src/resources/stylesheets/living-stories.scss']
       }
