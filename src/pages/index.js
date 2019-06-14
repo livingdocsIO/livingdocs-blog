@@ -8,12 +8,10 @@ import Layout from '../components/layout'
 class Homepage extends React.Component {
   render () {
     const intialPostData = this.props.data.allPublications.edges[0]
-
     return (
       <Layout>
         <div className="feature-container">
           <div className="feature-container__col">
-            {/* // CARD */}
             <TeaserFeatureCard
               small={false}
               {...intialPostData.node.publication.metadata}
@@ -72,6 +70,7 @@ export const query = graphql`
                   id
                 }
               }
+              flag
               title
               description
               publishDate
