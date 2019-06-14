@@ -17,7 +17,7 @@ const BlogTeaser = props => {
           </h2>
           <p className="teaser-card__text">{description}</p>
           <ul className="teaser-card__byline">
-            {authors.references.id &&
+            {authors &&
               authors.references.map(author => resolveAuthorName(author.id))}
             <li>{date}</li>
           </ul>

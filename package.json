@@ -35,7 +35,8 @@
     "eslint-plugin-prettier": "3.1.0",
     "eslint-plugin-react": "7.13.0",
     "node-sass": "^4.12.0",
-    "prettier": "1.17.1"
+    "prettier": "1.17.1",
+    "lodash": "^4.17.11"
   },
   "release": {
     "extends": "@livingdocs/semantic-release-presets/github"
