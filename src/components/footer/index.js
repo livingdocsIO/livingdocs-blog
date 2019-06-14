@@ -6,19 +6,19 @@ const footer = () => (
     <div className="wrapper wrapper--default">
       <nav className="page-foot-nav">
         <ul className="footer-links footer-links--left-aligned">
-          <li>© 2018 Living Stories</li>
+          <li>© 2019 Livingdocs</li>
           <li>
             <a href="mailto:contact@livingdocs.io">Contact us</a>
           </li>
-          <li>
-            <a href="https://www.livingdocs.io">Work With us</a>
-          </li>
-          <li>
-            <a href="https://github.com/livingdocsIO/blog-example">Github</a>
-          </li>
         </ul>
         <ul className="footer-links footer-links--right-aligned">
-          <li>This is an open-source demo blog built with Livingdocs.</li>
+          <li>
+            This blog is built with{' '}
+            <a href="https://livingdocs.io" target="_blank" rel="noopener noreferrer">
+              Livingdocs
+            </a>
+            .
+          </li>
         </ul>
       </nav>
     </div>

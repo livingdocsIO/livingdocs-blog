@@ -15,7 +15,7 @@ const Header = () => (
           <div className="meta-bar__unit">
             <nav className="meta-nav">
               <div className="meta-nav__item meta-nav__item--highlight">
-                <a href="https://edit.livingdocs.io/signup" target="_blank" rel="noopener noreferrer">Sign Up</a>
+                <a href="https://edit.livingdocs.io/signup" target="_blank" rel="noopener noreferrer">Try out Livingdocs</a>
               </div>
             </nav>
           </div>
