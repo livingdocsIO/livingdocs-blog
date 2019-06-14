@@ -9,5 +9,5 @@ const slugify = text => {
 }
 
 module.exports = (title, documentId) => {
-  return title && `${slugify(title)}-${documentId}`
+  return title && `/${slugify(title)}-${documentId}`
 }
