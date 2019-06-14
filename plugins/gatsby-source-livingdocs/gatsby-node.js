@@ -6,11 +6,12 @@ const resolveIncludes = require('./includes')
 const includesConfig = require('./includes/config')
 const renderLayout = require('./includes/render')
 const slugify = require('./slugify')
+const _ = require('lodash')
 
-exports.sourceNodes = ({actions}, configOptions) => {
+exports.sourceNodes = async ({actions}, configOptions) => {
   if (!configOptions.design) return console.warn('config.options.design missing')
-  if (!configOptions.design.name) return console.warn("config.options.design.name missing example: 'living-times'")
-  if (!configOptions.design.version) return console.warn("config.options.design.version missing example: '0.0.1'")
+  if (!configOptions.design.name) { return console.warn("config.options.design.name missing example: 'living-times'") }
+  if (!configOptions.design.version) { return console.warn("config.options.design.version missing example: '0.0.1'") }
 
   const {createNode} = actions
 
@@ -24,6 +25,30 @@ exports.sourceNodes = ({actions}, configOptions) => {
   })
 
   const limit = configOptions.limit ? configOptions.limit : 10
+
+
+  // As the livingdocs metadata can change, we set some defaults for the graphQL schema.
+  const defaultMetadata = {
+    metadata: {
+      authors: {
+        references: {
+          id: []
+        }
+      },
+      authorImage: {
+        originalUrl: '',
+        url: ''
+      },
+      flag: '',
+      teaserImage: {
+        originalUrl: ''
+      },
+      title: '',
+      description: '',
+      publishDate: '',
+      dependencies: {}
+    }
+  }
 
   // get all publications (articles, authors, etc.)
   const getAllPublications = async () => liClient.getPublications({limit})
@@ -68,6 +93,7 @@ exports.sourceNodes = ({actions}, configOptions) => {
     }
     return nodeData
   }
+
   async function createNodes () {
     const allPublications = await getAllPublications()
     if (!allPublications.length) {
@@ -82,11 +108,13 @@ exports.sourceNodes = ({actions}, configOptions) => {
     })
     if (!design) console.warn('ALERT! livingdocs-gatsby-plugin: design could not be loaded')
 
-    for (const publication of allPublications) {
+    // eslint-disable-next-line prefer-const
+    for (let [index, publication] of allPublications.entries()) {
+      if (index === 0) publication = _.merge(defaultMetadata, publication) // applies graphql defaults.
       const nodeData = await processPublication(publication, design)
       createNode(nodeData)
     }
   }
 
-  return createNodes()
+  return await createNodes()
 }

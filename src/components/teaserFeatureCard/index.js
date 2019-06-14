@@ -22,7 +22,7 @@ const teaserFeatureCard = props => {
           </h2>
           <p className="teaser-feature-card__text">{description}</p>
           <ul className="teaser-feature-card__byline">
-            {authors.references.id &&
+            {authors &&
               authors.references.map(author => resolveAuthorName(author.id))}
             <li>{date}</li>
           </ul>
