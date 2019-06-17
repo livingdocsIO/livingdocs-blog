@@ -1,6 +1,9 @@
 const createLivingdoc = require('./helpers/create_livingdoc')
 
-module.exports = function enrichVideoTeaserContent ({component, publication} = {}) {
+module.exports = function enrichVideoTeaserContent ({
+  component,
+  publication
+} = {}) {
   const videoLivingdoc = createLivingdoc(publication)
   const tree = videoLivingdoc.componentTree
 
@@ -8,7 +11,8 @@ module.exports = function enrichVideoTeaserContent ({component, publication} = {
   const iframeComponents = tree.find('iframe')
   component.append(
     'video',
-    getFirstEscaped(freeHtmlComponents, 'free-html') || getFirstEscaped(iframeComponents, 'iframe')
+    getFirstEscaped(freeHtmlComponents, 'free-html') ||
+      getFirstEscaped(iframeComponents, 'iframe')
   )
 }
 

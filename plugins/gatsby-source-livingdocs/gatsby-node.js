@@ -2,11 +2,12 @@
 /* eslint-disable no-console */
 const liSDK = require('@livingdocs/node-sdk')
 const crypto = require('crypto')
-const resolveIncludes = require('./includes')
-const includesConfig = require('./includes/config')
-const renderLayout = require('./includes/render')
 const slugify = require('./slugify')
 const _ = require('lodash')
+const {documentTypes, defaultDocumentType} = require('./includes/config/documentTypes')
+const includesConfig = require('./includes/config')
+const renderLayout = require('./includes/render')
+const resolveIncludes = require('./includes')
 
 exports.sourceNodes = async ({actions}, configOptions) => {
   if (!configOptions.design) return console.warn('config.options.design missing')
@@ -25,7 +26,8 @@ exports.sourceNodes = async ({actions}, configOptions) => {
   })
 
   const limit = configOptions.limit ? configOptions.limit : 10
-
+  const recursion = configOptions.recursion ? configOptions.limit : true
+  const allPublications = []
 
   // As the livingdocs metadata can change, we set some defaults for the graphQL schema.
   const defaultMetadata = {
@@ -51,7 +53,18 @@ exports.sourceNodes = async ({actions}, configOptions) => {
   }
 
   // get all publications (articles, authors, etc.)
-  const getAllPublications = async () => liClient.getPublications({limit})
+  // @param offset {Number} incrementally increasing to gather documents beyond the limit
+  const getAllPublicationsRecursively = async (offset = 0) => {
+    const publications = await liClient.getPublications({offset, limit})
+    allPublications.push(...publications)
+    publications.length === limit && await getAllPublicationsRecursively(offset + limit)
+  }
+
+  // get all publications (articles, authors, etc.)
+  const getAllPublications = async () => {
+    const publications = await liClient.getPublications({limit})
+    allPublications.push(...publications)
+  }
 
   const getPublication = async (publication, design) => {
     const livingdoc = liSDK.document.create({
@@ -63,7 +76,13 @@ exports.sourceNodes = async ({actions}, configOptions) => {
       publication.systemdata.documentType === 'page'
     ) {
       await resolveIncludes(livingdoc, liClient, includesConfig)
-      const html = await renderLayout(livingdoc, design)
+
+      const documentType = publication.systemdata.documentType
+      const currentDocumentType = documentTypes && documentTypes[documentType]
+      const targetDocumentType = currentDocumentType || defaultDocumentType
+
+      const layoutComponents = targetDocumentType.layoutComponents
+      const html = await renderLayout(livingdoc, design, layoutComponents)
       return html
     } else {
       const article = liSDK.document.render(livingdoc)
@@ -95,7 +114,7 @@ exports.sourceNodes = async ({actions}, configOptions) => {
   }
 
   async function createNodes () {
-    const allPublications = await getAllPublications()
+    recursion ? await getAllPublicationsRecursively() : await getAllPublications()
     if (!allPublications.length) {
       console.warn(`
       ALERT! Livingdocs-gatsby-plugin has not found any publications.

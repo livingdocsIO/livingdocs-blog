@@ -1,7 +1,7 @@
 const contentExtractor = require('./content_extractor')
 
 module.exports = {
-  'teaser': {
+  teaser: {
     layouts: {
       'author-embed': {
         template: 'teaser-author-template',
@@ -21,9 +21,7 @@ module.exports = {
           flag: contentExtractor.flag,
           date: contentExtractor.publishDate
         },
-        contentEnrichments: [
-          require('./enrichments/author_ref')
-        ]
+        contentEnrichments: [require('./enrichments/author_ref')]
       },
       hero: {
         template: 'teaser-hero-template',
@@ -35,9 +33,7 @@ module.exports = {
           date: contentExtractor.publishDate,
           image: contentExtractor.image({crop: '16:9'})
         },
-        contentEnrichments: [
-          require('./enrichments/author_ref')
-        ]
+        contentEnrichments: [require('./enrichments/author_ref')]
       },
       card: {
         template: 'teaser-card-template',
@@ -50,9 +46,7 @@ module.exports = {
           date: contentExtractor.publishDate,
           image: contentExtractor.image({crop: '16:9'})
         },
-        contentEnrichments: [
-          require('./enrichments/author_ref')
-        ]
+        contentEnrichments: [require('./enrichments/author_ref')]
       },
       'card-no-image': {
         template: 'teaser-card-no-image-template',
@@ -63,9 +57,7 @@ module.exports = {
           text: contentExtractor.description,
           date: contentExtractor.publishDate
         },
-        contentEnrichments: [
-          require('./enrichments/author_ref')
-        ]
+        contentEnrichments: [require('./enrichments/author_ref')]
       },
       'card-numbered': {
         template: 'teaser-card-numbered-template',
@@ -75,9 +67,7 @@ module.exports = {
           flag: contentExtractor.flag,
           date: contentExtractor.publishDate
         },
-        contentEnrichments: [
-          require('./enrichments/author_ref')
-        ]
+        contentEnrichments: [require('./enrichments/author_ref')]
       },
       'card-author': {
         template: 'teaser-card-author-template',
@@ -86,9 +76,7 @@ module.exports = {
           text: contentExtractor.title,
           image: contentExtractor.image({crop: '16:9'})
         },
-        contentEnrichments: [
-          require('./enrichments/author_teaser')
-        ]
+        contentEnrichments: [require('./enrichments/author_teaser')]
       },
       gallery: {
         template: 'teaser-gallery-template',
@@ -96,9 +84,7 @@ module.exports = {
           title: contentExtractor.title,
           image: contentExtractor.image({crop: '16:9'})
         },
-        contentEnrichments: [
-          require('./enrichments/gallery_teaser')
-        ]
+        contentEnrichments: [require('./enrichments/gallery_teaser')]
       },
       'gallery-hero': {
         template: 'teaser-gallery-hero-template',
@@ -107,9 +93,7 @@ module.exports = {
           text: contentExtractor.description,
           image: contentExtractor.image({crop: '16:9'})
         },
-        contentEnrichments: [
-          require('./enrichments/gallery_teaser')
-        ]
+        contentEnrichments: [require('./enrichments/gallery_teaser')]
       },
       video: {
         template: 'teaser-video-template',
@@ -117,9 +101,7 @@ module.exports = {
           title: contentExtractor.title,
           image: contentExtractor.image({crop: '16:9'})
         },
-        contentEnrichments: [
-          require('./enrichments/video_teaser')
-        ]
+        contentEnrichments: [require('./enrichments/video_teaser')]
       },
       'video-hero': {
         template: 'teaser-video-hero-template',
@@ -128,9 +110,7 @@ module.exports = {
           text: contentExtractor.description,
           image: contentExtractor.image({crop: '16:9'})
         },
-        contentEnrichments: [
-          require('./enrichments/video_teaser')
-        ]
+        contentEnrichments: [require('./enrichments/video_teaser')]
       }
     }
   }

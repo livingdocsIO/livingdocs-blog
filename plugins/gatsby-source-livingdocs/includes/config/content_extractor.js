@@ -30,7 +30,7 @@ function profile ({metadata = {}} = {}) {
 }
 
 function authorName ({metadata = {}} = {}) {
-  if (metadata.prename && metadata.surname) return `${metadata.prename} ${metadata.surname}`
+  if (metadata.prename && metadata.surname) { return `${metadata.prename} ${metadata.surname}` }
   if (metadata.prename) return metadata.prename
   if (metadata.surname) return metadata.surname
   return 'No Name'
@@ -45,7 +45,8 @@ function image (imageExtractionConfig = {}) {
     if (!teaserImage) return null
     if (!desiredImageCrop) return teaserImage
     const crops = teaserImage.crops
-    const imageCrop = crops && crops.find(crop => crop.name === desiredImageCrop)
+    const imageCrop =
+      crops && crops.find(crop => crop.name === desiredImageCrop)
     if (!imageCrop) return teaserImage
     return {
       ...teaserImage,
@@ -64,7 +65,10 @@ function author ({metadata = {}} = {}) {
   return metadata.author || ''
 }
 
-function publishDate ({metadata = {}, first_publication: firstPublication = {}} = {}) {
+function publishDate ({
+  metadata = {},
+  first_publication: firstPublication = {}
+} = {}) {
   try {
     const metadataDate = moment(metadata.publishDate)
     if (metadataDate.isValid()) return metadataDate.calendar()
