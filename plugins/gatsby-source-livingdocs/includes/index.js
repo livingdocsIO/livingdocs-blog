@@ -1,13 +1,19 @@
 const liSDK = require('@livingdocs/node-sdk')
 
-module.exports = async function resolveIncludes (livingdoc, liClient, includesConfig) {
+module.exports = async function resolveIncludes (
+  livingdoc,
+  liClient,
+  includesConfig
+) {
   const resolverTasks = startResolverTasks(livingdoc, liClient, includesConfig)
   for (const task of resolverTasks) {
     const {serviceName, resolver} = task
     try {
       await resolver
     } catch (err) {
-      err.message = `Include resolver for "${serviceName}" failed with: ${err.message}`
+      err.message = `Include resolver for "${serviceName}" failed with: ${
+        err.message
+      }`
       throw err
     }
   }
