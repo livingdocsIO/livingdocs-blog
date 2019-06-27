@@ -33,9 +33,7 @@ exports.sourceNodes = async ({actions}, configOptions) => {
   const defaultMetadata = {
     metadata: {
       authors: {
-        references: {
-          id: []
-        }
+        references: [{id: ''}]
       },
       authorImage: {
         originalUrl: '',
