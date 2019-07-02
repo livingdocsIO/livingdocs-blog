@@ -13,20 +13,19 @@
   },
   "dependencies": {
     "@livingdocs/node-sdk": "^0.3.4",
-    "gatsby": "^2.9.2",
-    "gatsby-plugin-manifest": "2.1.1",
-    "gatsby-plugin-offline": "2.1.1",
-    "gatsby-plugin-react-helmet": "3.0.12",
+    "gatsby": "^2.12.0",
+    "gatsby-plugin-manifest": "2.2.0",
+    "gatsby-plugin-react-helmet": "3.1.0",
     "gatsby-plugin-robots-txt": "1.4.0",
     "gatsby-plugin-sass": "^2.0.11",
-    "gatsby-plugin-sitemap": "2.1.0",
-    "net": "1.0.2",
+    "gatsby-plugin-sitemap": "2.2.1",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-helmet": "5.2.1",
-    "tls": "0.0.1"
+    "react-helmet": "5.2.1"
   },
   "devDependencies": {
+    "tls": "0.0.1",
+    "net": "1.0.2",
     "eslint": "5.16.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "4.3.0",
