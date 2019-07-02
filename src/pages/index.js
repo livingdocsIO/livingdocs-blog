@@ -4,10 +4,21 @@ import TeaserCard from '../components/teaserCard'
 import TeaserFeatureCard from '../components/teaserFeatureCard'
 import Layout from '../components/layout'
 
+// sorts days by entry newest-latest without mutating the original array
+const sortByDate = array => [...array].sort((a, b) => {
+  if (!a.node.publication.metadata.publishDate || !b.node.publication.metadata.publishDate) return
+  const dateA = new Date(a.node.publication.metadata.publishDate)
+  const dateB = new Date(b.node.publication.metadata.publishDate)
+  return dateB - dateA
+})
+
+
 // The homepage. This could also be done in Livingdocs
 class Homepage extends React.Component {
   render () {
-    const intialPostData = this.props.data.allPublications.edges[0]
+    const posts = this.props.data.allPublications.edges
+    const sortedPosts = sortByDate(posts)
+    const intialPostData = sortedPosts[0]
     return (
       <Layout>
         <div className="feature-container">
@@ -20,7 +31,7 @@ class Homepage extends React.Component {
             />
           </div>
           <div className="feature-container__col">
-            {this.props.data.allPublications.edges.map((data, i) => {
+            {sortedPosts.map((data, i) => {
               if (i > 3 || i === 0) return
               return (
                 <TeaserFeatureCard
@@ -36,7 +47,7 @@ class Homepage extends React.Component {
         <div className="container container--breath">
           <div className="container-grid container-grid--whole">
             <div className="container-grid__item">
-              {this.props.data.allPublications.edges.map((data, i) => {
+              {sortedPosts.map((data, i) => {
                 if (i < 3) return
                 return (
                   <TeaserCard
