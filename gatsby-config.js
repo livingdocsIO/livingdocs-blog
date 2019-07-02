@@ -7,7 +7,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-livingdocs',
       options: {
-        limit: 35, // defaults to 10, if there is none
+        limit: 50, // defaults to 10, if there is none
+        recursion: true,
         // The accessToken is accessed at buildtime and set in netlify in this case
         accessToken: process.env.accessToken,
         design: {
@@ -27,14 +28,14 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://blog.livingdocs.io', // @TODO add Link
-        sitemap: 'https://blog.livingdocs.io/sitemap.xml', // @TODO add Link
+        host: 'https://blog.livingdocs.io',
+        sitemap: 'https://blog.livingdocs.io/sitemap.xml',
         env: {
           development: {
             policy: [{userAgent: '*', disallow: ['/']}]
           },
           production: {
-            policy: [{userAgent: '*', disallow: '/'}] // @TODO change to allow
+            policy: [{userAgent: '*', allow: '/'}] // @TODO change to allow
           }
         }
       }
@@ -42,7 +43,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Livingblogs',
+        name: 'Livingdocs blog',
         short_name: 'Li-Blog',
         start_url: '/',
         background_color: '#6b37bf',
