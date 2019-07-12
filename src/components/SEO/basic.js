@@ -3,7 +3,8 @@ import Helmet from 'react-helmet'
 
 const Basic = props => (
   <Helmet title={props.title}>
-    <script>{props.scripts}</script>
+    {props.scripts &&
+      props.scripts.map((scriptEntry, i) => <script key={i}>{scriptEntry.code}</script>)}
     <meta name="description" content={props.description} />
     <meta name="keywords" content={props.title} />
   </Helmet>

@@ -8,13 +8,13 @@ import Twitter from './twitter'
 const warnPropMissing = prop => console.warn(`SEO: missing ${prop} for applying correct SEO information`)
 
 const seo = props => {
-  const {title, description, url} = props
+  const {title, description, url, scripts} = props
   if (!title) warnPropMissing('title')
   if (!description) warnPropMissing('description')
   if (!url) warnPropMissing('url')
   return (
     <>
-      <Basic title={title} description={description} />
+      <Basic title={title} description={description} scripts={scripts}/>
       <OpenGraph title={title} description={description} url={url} />
       <Twitter />
     </>
