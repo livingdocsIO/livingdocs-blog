@@ -7,6 +7,7 @@ import {metadata} from '../../config'
 const blogPost = props => {
   // SEO - description | title | url
   const description = props.data.publications.publication.metadata.description
+  const scripts = props.data.publications.publication.metadata.dependencies.js
   const title = props.data.publications.publication.metadata.title
   const url = metadata.url
 
@@ -15,7 +16,7 @@ const blogPost = props => {
 
   return (
     <Layout>
-      <SEO title={title} description={description} url={url}/>
+      <SEO title={title} description={description} url={url} scripts={scripts}/>
       <div dangerouslySetInnerHTML={{__html: html}} />
     </Layout>
   )
@@ -28,6 +29,11 @@ export const query = graphql`
         metadata {
           title
           description
+          dependencies {
+            js {
+              code
+            }
+          }
         }
       }
       extra {
