@@ -27,6 +27,7 @@ class Homepage extends React.Component {
               small={false}
               {...intialPostData.node.publication.metadata}
               slug={intialPostData.node.extra.slug}
+              readingTime={intialPostData.node.extra.stats.text}
               key={intialPostData.node.publication.systemdata.documentId}
             />
           </div>
@@ -38,6 +39,7 @@ class Homepage extends React.Component {
                   small={true}
                   {...data.node.publication.metadata}
                   slug={data.node.extra.slug}
+                  readingTime={data.node.extra.stats.text}
                   key={data.node.publication.systemdata.documentId}
                 />
               )
@@ -53,6 +55,7 @@ class Homepage extends React.Component {
                   <TeaserCard
                     {...data.node.publication.metadata}
                     slug={data.node.extra.slug}
+                    readingTime={data.node.extra.stats.text}
                     key={data.node.publication.systemdata.documentId}
                   />
                 )
@@ -73,6 +76,9 @@ export const query = graphql`
         node {
           extra {
             slug
+            stats {
+              text
+            }
           }
           publication {
             metadata {
