@@ -14,7 +14,8 @@ module.exports = {
         design: {
           name: 'living-stories',
           version: '0.0.2'
-        }
+        },
+        resolveReadingTime: true
       }
     },
     {

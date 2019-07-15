@@ -8,11 +8,13 @@ const {documentTypes, defaultDocumentType} = require('./includes/config/document
 const includesConfig = require('./includes/config')
 const renderLayout = require('./includes/render')
 const resolveIncludes = require('./includes')
+const readingTime = require('reading-time')
 
 exports.sourceNodes = async ({actions}, configOptions) => {
   if (!configOptions.design) return console.warn('config.options.design missing')
   if (!configOptions.design.name) { return console.warn("config.options.design.name missing example: 'living-times'") }
   if (!configOptions.design.version) { return console.warn("config.options.design.version missing example: '0.0.1'") }
+  const resolveReadingTime = _.get(configOptions, 'resolveReadingTime', true)
 
   const {createNode} = actions
 
@@ -94,6 +96,7 @@ exports.sourceNodes = async ({actions}, configOptions) => {
 
   // Create your node object
   const processPublication = async (publication, design) => {
+    console.log(resolveReadingTime)
     const html = await getPublication(publication, design)
     const nodeData = {
       id: `${publication.systemdata.documentId}`,
@@ -109,7 +112,8 @@ exports.sourceNodes = async ({actions}, configOptions) => {
       publication,
       extra: {
         slug: slugify(publication.metadata.title, publication.systemdata.documentId),
-        html
+        html,
+        stats: resolveReadingTime ? readingTime(html) : null
       }
     }
     return nodeData

@@ -3,7 +3,7 @@ import {Link} from 'gatsby'
 import {resolveAuthorName} from '../helpers/resolveAuthorName'
 
 const teaserFeatureCard = props => {
-  const {title, publishDate, teaserImage, description, authors, flag, slug} = props
+  const {title, publishDate, teaserImage, description, authors, flag, slug, readingTime} = props
   const url = teaserImage && teaserImage.originalUrl
   const isSmall = props.small ? 'teaser-feature-card--small' : ''
   const date = new Date(publishDate).toLocaleDateString('de-DE')
@@ -24,7 +24,7 @@ const teaserFeatureCard = props => {
           <ul className="teaser-feature-card__byline">
             {authors &&
               authors.references.map(author => resolveAuthorName(author.id))}
-            <li>{date}</li>
+            <li>{date} - {readingTime}</li>
           </ul>
         </div>
       </div>
