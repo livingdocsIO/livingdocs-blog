@@ -3,6 +3,7 @@ import {graphql} from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/SEO'
 import {metadata} from '../../config'
+import ProgressBar from '../components/readingProgress/progress'
 
 const blogPost = props => {
   // SEO - description | title | url
@@ -15,10 +16,13 @@ const blogPost = props => {
   const html = props.data.publications.extra.html
 
   return (
-    <Layout>
-      <SEO title={title} description={description} url={url} scripts={scripts}/>
-      <div dangerouslySetInnerHTML={{__html: html}} />
-    </Layout>
+    <>
+    <ProgressBar/>
+      <Layout>
+        <SEO title={title} description={description} url={url} scripts={scripts}/>
+        <div dangerouslySetInnerHTML={{__html: html}} />
+      </Layout>
+    </>
   )
 }
 
