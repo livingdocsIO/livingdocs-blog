@@ -96,7 +96,6 @@ exports.sourceNodes = async ({actions}, configOptions) => {
 
   // Create your node object
   const processPublication = async (publication, design) => {
-    console.log(resolveReadingTime)
     const html = await getPublication(publication, design)
     const nodeData = {
       id: `${publication.systemdata.documentId}`,
