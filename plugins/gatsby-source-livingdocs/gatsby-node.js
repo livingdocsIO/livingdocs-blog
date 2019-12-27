@@ -49,9 +49,9 @@ exports.sourceNodes = async ({actions}, configOptions) => {
       description: '',
       publishDate: '',
       dependencies: {
-        js: {
+        js: [{
           code: ''
-        }
+        }]
       }
     }
   }
