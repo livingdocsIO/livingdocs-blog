@@ -30,6 +30,6 @@ trigger:
   event: [push]
 ---
 kind: signature
-hmac: eff159def7e807ca385481d60cde95f84b9fdbee02cc268a11b77a648f585dd8
+hmac: 08d0fca988b6bb2d2f5d7df45216aeabb11fe14f70cc2e795240400b8bbf37b1
 
 ...
