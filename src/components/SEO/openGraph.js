@@ -10,7 +10,7 @@ const openGraph = props => (
     <meta property="og:description" content={props.description} />
     <meta
       property="og:image"
-      content="http://livingdocs-assets.s3.amazonaws.com/ld_logo_final@2x.png"
+      content={props.imageUrl}
     />
   </Helmet>
 )
