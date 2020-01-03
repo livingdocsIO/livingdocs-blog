@@ -10,6 +10,7 @@ const blogPost = props => {
   const description = props.data.publications.publication.metadata.description
   const scripts = props.data.publications.publication.metadata.dependencies.js
   const title = props.data.publications.publication.metadata.title
+  const imageUrl = props.data.publications.publication.metadata.teaserImage.url
   const url = metadata.url
 
   // HTML - rendering the html-body
@@ -17,9 +18,15 @@ const blogPost = props => {
 
   return (
     <>
-    <ProgressBar/>
+      <ProgressBar />
       <Layout>
-        <SEO title={title} description={description} url={url} scripts={scripts}/>
+        <SEO
+          title={title}
+          description={description}
+          url={url}
+          scripts={scripts}
+          imageUrl={imageUrl}
+        />
         <div dangerouslySetInnerHTML={{__html: html}} />
       </Layout>
     </>
@@ -28,11 +35,14 @@ const blogPost = props => {
 
 export const query = graphql`
   query($slug: String!) {
-    publications(extra: {slug: {eq: $slug}}) {
+    publications(extra: { slug: { eq: $slug } }) {
       publication {
         metadata {
           title
           description
+          teaserImage {
+            url
+          }
           dependencies {
             js {
               code

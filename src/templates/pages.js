@@ -6,6 +6,7 @@ import {metadata} from '../../config'
 
 const page = props => {
   // SEO - description | title | url
+  const imageUrl = props.data.publications.publication.metadata.teaserImage.url
   const description = props.data.publications.publication.metadata.description
   const title = props.data.publications.publication.metadata.title
   const url = metadata.url
@@ -14,7 +15,7 @@ const page = props => {
   const html = props.data.publications.extra.html
   return (
     <Layout>
-      <SEO title={title} description={description} url={url}/>
+      <SEO title={title} description={description} url={url} imageUrl={imageUrl}/>
       <div dangerouslySetInnerHTML={{__html: html}} />
     </Layout>
   )
