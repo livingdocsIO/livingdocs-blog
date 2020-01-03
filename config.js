@@ -11,5 +11,6 @@ export const metadata = {
   `,
   facebookId: 'fb:page_id',
   twitterId: 'twitter:account_id',
-  url: 'https://blog.livingdocs.io'
+  url: 'https://blog.livingdocs.io',
+  defaultTeaser: 'http://livingdocs-designs-dev.s3-eu-west-1.amazonaws.com/livingdocssite/1.0.3/icons/eagle.svg'
 }

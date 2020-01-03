@@ -39,7 +39,7 @@ class Layout extends React.Component {
 
   render () {
     // eslint-disable-next-line max-len
-    const {defaultTitle, titleTemplate, author, description, keywords, facebookId, twitterId} = metadata
+    const {defaultTitle, titleTemplate, author, description, keywords, facebookId, twitterId, defaultTeaser} = metadata
     return (
       <div>
         <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate}>
@@ -53,7 +53,7 @@ class Layout extends React.Component {
           <meta httpEquiv="Content-Language" content="en" />
           <meta property={facebookId} content="id" />
           <meta property={twitterId} content="id" />
-
+          <meta property="og:image" content={defaultTeaser} />
           <link title="timeline-styles" rel="shortcut icon" type="image/png" href={favicon} />
           <noscript>Please enable Javascript</noscript>
         </Helmet>
