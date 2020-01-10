@@ -9,5 +9,8 @@ const slugify = text => {
 }
 
 module.exports = (title, documentId) => {
+
+  // eslint-disable-next-line
+  if (documentId == 29091) return title && `/${slugify(title)}-${documentId}/1`
   return title && `/${slugify(title)}-${documentId}`
 }
