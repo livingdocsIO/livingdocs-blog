@@ -9,6 +9,8 @@ const openGraph = props => (
     <meta name="title" property="og:title" content={props.title} />
     <meta name="description" property="og:description" content={props.description} />
     <meta name="image" property="og:image" content={props.imageUrl} />
+    <meta property="og:image:url" content={props.imageUrl} />
+    <meta property="og:image:secure_url" content={props.imageUrl}/>
   </Helmet>
 )
 
