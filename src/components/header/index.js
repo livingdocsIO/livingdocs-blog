@@ -10,7 +10,9 @@ const Header = () => (
             <a className="meta-bar__logo logo" href="https://livingdocs.io">
               <img src={logo} alt="Living Stories" />
             </a>
-            <b className="meta-bar__title"><a href="/" style={{textDecoration: 'none'}}>Livingdocs Blog</a></b>
+            <b className="meta-bar__title">
+              <a href="/" style={{textDecoration: 'none'}}>Livingdocs Blog</a>
+            </b>
           </div>
           <div className="meta-bar__unit">
             <nav className="meta-nav">
