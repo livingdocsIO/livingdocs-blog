@@ -7,10 +7,10 @@ const Header = () => (
       <div className="wrapper wrapper--default">
         <div className="meta-bar">
           <div className="meta-bar__unit">
-            <a className="meta-bar__logo logo" href="/">
+            <a className="meta-bar__logo logo" href="https://livingdocs.io">
               <img src={logo} alt="Living Stories" />
             </a>
-            <b className="meta-bar__title">Livingdocs Blog</b>
+            <b className="meta-bar__title"><a href="/" style={{textDecoration: 'none'}}>Livingdocs Blog</a></b>
           </div>
           <div className="meta-bar__unit">
             <nav className="meta-nav">
