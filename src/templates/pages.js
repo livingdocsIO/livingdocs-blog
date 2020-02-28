@@ -15,7 +15,12 @@ const page = props => {
   const html = props.data.publications.extra.html
   return (
     <Layout>
-      <SEO title={title} description={description} url={`${baseUrl}${props.path}`} imageUrl={imageUrl}/>
+      <SEO
+        title={title}
+        description={description}
+        url={`${baseUrl}${props.path}`}
+        imageUrl={imageUrl}
+      />
       <div dangerouslySetInnerHTML={{__html: html}} />
     </Layout>
   )
@@ -23,7 +28,7 @@ const page = props => {
 
 export const query = graphql`
   query($slug: String!) {
-    publications(extra: {slug: {eq: $slug}}) {
+    publications(extra: { slug: { eq: $slug } }) {
       publication {
         metadata {
           title
