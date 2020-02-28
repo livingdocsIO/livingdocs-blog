@@ -9,13 +9,13 @@ const page = props => {
   const imageUrl = props.data.publications.publication.metadata.teaserImage.url
   const description = props.data.publications.publication.metadata.description
   const title = props.data.publications.publication.metadata.title
-  const url = metadata.url
+  const baseUrl = metadata.url
 
   // HTML - rendering the html-body
   const html = props.data.publications.extra.html
   return (
     <Layout>
-      <SEO title={title} description={description} url={`https://blog.livingdocs.io${props.path}`} imageUrl={imageUrl}/>
+      <SEO title={title} description={description} url={`${baseUrl}${props.path}`} imageUrl={imageUrl}/>
       <div dangerouslySetInnerHTML={{__html: html}} />
     </Layout>
   )
