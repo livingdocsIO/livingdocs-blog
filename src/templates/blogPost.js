@@ -23,7 +23,7 @@ const blogPost = props => {
         <SEO
           title={title}
           description={description}
-          url={url}
+          url={`https://blog.livingdocs.io${props.path}`}
           scripts={scripts}
           imageUrl={imageUrl}
         />
