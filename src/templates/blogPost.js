@@ -11,7 +11,7 @@ const blogPost = props => {
   const scripts = props.data.publications.publication.metadata.dependencies.js
   const title = props.data.publications.publication.metadata.title
   const imageUrl = props.data.publications.publication.metadata.teaserImage.url
-  const url = metadata.url
+  const baseUrl = metadata.url
 
   // HTML - rendering the html-body
   const html = props.data.publications.extra.html
@@ -23,7 +23,7 @@ const blogPost = props => {
         <SEO
           title={title}
           description={description}
-          url={`https://blog.livingdocs.io${props.path}`}
+          url={`${baseUrl}${props.path}`}
           scripts={scripts}
           imageUrl={imageUrl}
         />
