@@ -2,7 +2,7 @@
   "name": "living-times",
   "label": "Living Times",
   "version": "0.0.14",
-  "license": "Copyright (c) 2018 Livingdocs AG, all rights reserved",
+  "license": "Copyright (c) 2020 Livingdocs AG, all rights reserved",
   "assets": {
     "basePath": "https://cdn-jbxbgjz.livingdocs.io/designs/living-times/0.0.14",
     "css": ["./styles.css"],
