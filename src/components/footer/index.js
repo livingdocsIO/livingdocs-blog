@@ -6,7 +6,7 @@ const footer = () => (
     <div className="wrapper wrapper--default">
       <nav className="page-foot-nav">
         <ul className="footer-links footer-links--left-aligned">
-          <li>© 2019 Livingdocs</li>
+          <li>© {new Date().getFullYear()} Livingdocs</li>
           <li>
             <a href="mailto:contact@livingdocs.io">Contact us</a>
           </li>
