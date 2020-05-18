@@ -2,7 +2,7 @@ import React from 'react'
 import logo from '../../resources/assets/images/ld-logo.svg'
 
 const Header = () => (
-  <header className="page-head" role="banner">
+  <header className="blog-head" role="banner">
     <div>
       <div className="wrapper wrapper--default">
         <div className="meta-bar">
